@@ -1,19 +1,16 @@
-
 @* Usamos .container para centrar y limitar ancho en la página de categorías *@
 <div class="container page-container categories-page-container"> 
 
-    <div class="section-header"> @* Encabezado de la sección, igual que en Index *@
+    <div class="section-header">
         <div class="section-title">
-            <h1>Categorias</h1> @* Usamos H1 porque es el título principal de ESTA página *@
+            <h1>Categorias</h1>
         </div>
-        @* No necesitamos el enlace "Ver Todas" aquí, ya que ESTA es la página de "todas" las categorías *@
-        @* Pero si quisieras un filtro o algo más, iría aquí o debajo *@
     </div>
 
-    <div class="category-grid">
+    <div class="category-grid"> @* Este grid es para las primeras 4 categorías *@
         @* Item 1: Departamentos *@
         <div class="category-item category-item-dept">
-            <a href="#" class="category-link"> @* Este enlace podría llevar a la página de listado de Departamentos *@
+            <a href="#" class="category-link">
                 <img src="~/images/cat-departamentos.jpg" alt="Departamentos">
                 <span class="most-wanted-banner">Lo Mas Buscado</span>
             </a>
@@ -22,7 +19,7 @@
 
         @* Item 2: Casas *@
         <div class="category-item category-item-casas">
-            <a href="#" class="category-link"> @* Enlace a listado de Casas *@
+            <a href="#" class="category-link">
                 <img src="~/images/cat-casas.jpg" alt="Casas">
             </a>
             <p class="category-name">Casas</p>
@@ -30,7 +27,7 @@
 
         @* Item 3: Comercios *@
         <div class="category-item category-item-comercios">
-            <a href="#" class="category-link"> @* Enlace a listado de Comercios *@
+            <a href="#" class="category-link">
                 <img src="~/images/cat-comercios.jpg" alt="Comercios">
             </a>
             <p class="category-name">Comercios</p>
@@ -38,21 +35,67 @@
 
         @* Item 4: Countries *@
         <div class="category-item category-item-countries">
-            <a href="#" class="category-link"> @* Enlace a listado de Countries *@
+            <a href="#" class="category-link">
                 <img src="~/images/cat-countries.jpg" alt="Countries">
             </a>
             <p class="category-name">Countries</p>
         </div>
-
-        @* --- PUEDES AÑADIR MÁS CATEGORÍAS AQUÍ SI ES NECESARIO --- *@
-        @* Ejemplo de una quinta categoría, necesitarías definir su CSS grid-placement si el flujo automático no es el deseado * /
-        @*
-        <div class="category-item category-item-terrenos">
-            <a href="#" class="category-link">
-                <img src="~/images/cat-terrenos.jpg" alt="Terrenos">
-            </a>
-            <p class="category-name">Terrenos</p>
-        </div>
-        *@
     </div>
-</div>
+    @* Aquí termina el primer grid *@
+
+    @* ----- INICIO: NUEVA SECCIÓN PARA OTRAS CATEGORÍAS ----- *@
+    <div class="other-categories-header"> @* Título opcional para esta nueva sub-sección *@
+        <h3>Más Opciones</h3>
+    </div>
+    <div class="category-grid-other"> @* Un nuevo contenedor de grid para estas dos *@
+        @* ----- NUEVO: Item 5: Hoteles ----- *@
+        <div class="category-item category-item-hoteles">
+            <a href="#" class="category-link">
+                <img src="~/images/cat-hoteles.jpg" alt="Hoteles"> @* ¡NECESITARÁS ESTA IMAGEN! *@
+            </a>
+            <p class="category-name">Hoteles</p>
+        </div>
+
+        @* ----- NUEVO: Item 6: Residencias Universitarias ----- *@
+        <div class="category-item category-item-residencias">
+            <a href="#" class="category-link">
+                <img src="~/images/cat-residencias.jpg" alt="Residencias Universitarias"> @* ¡NECESITARÁS ESTA IMAGEN! *@
+            </a>
+            <p class="category-name">Residencias Universitarias</p>
+        </div>
+
+        @* ----- NUEVO: Item 7: Casa de Verano ----- *@
+        <div class="category-item category-item-residencias">
+            <a href="#" class="category-link">
+                <img src="~/images/cat-casa-verano.jpg" alt="Casa de Verano"> @* ¡NECESITARÁS ESTA IMAGEN! *@
+            </a>
+            <p class="category-name">Casa de Verano</p>
+        </div>
+
+        @* ----- NUEVO: Item 8: Almacenes ----- *@
+        <div class="category-item category-item-residencias">
+            <a href="#" class="category-link">
+                <img src="~/images/cat-almacenes.jpg" alt="Almacenes"> @* ¡NECESITARÁS ESTA IMAGEN! *@
+            </a>
+            <p class="category-name">Almacenes</p>
+        </div>
+    </div>
+    @* ----- FIN: NUEVA SECCIÓN PARA OTRAS CATEGORÍAS ----- *@
+
+</div> @* CIERRE DEL DIV class="container page-container categories-page-container" *@
+
+@* ----- INICIO: SECCIÓN CONTACTO CTA (CON IMAGEN EDIFICIOS) ----- *@
+<section class="contact-cta-section" >
+    @* Este es el div que ahora tendrá el fondo café y estará centrado *@
+    <div class="container contact-cta-container"> 
+        <div class="contact-cta-image-content">
+            <img src="~/images/edificios-contacto.png" alt="Edificios decorativos">
+        </div>
+        <div class="contact-cta-text-content">
+            <h2 class="contact-cta-title">Contáctanos</h2>
+            <p class="contact-cta-subtitle">Sabemos lo que necesitas</p>
+            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a>
+        </div>
+    </div>
+</section>
+@* ----- FIN: SECCIÓN CONTACTO CTA ----- *@

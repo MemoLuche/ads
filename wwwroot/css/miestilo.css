@@ -8,7 +8,7 @@ body {
     padding: 0;
     box-sizing: border-box; /* Mejor manejo de padding/border */
     background-color: #ffffff; /* Un color de fondo general suave (¡Ajusta!) */
-    color: #333; /* Color de texto por defecto */
+    color: #000000; /* Color de texto por defecto */
 }
 
 *, *:before, *:after {
@@ -434,7 +434,7 @@ body {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    background-color: #F5F5F5;
+    background-color: #ffffff;
 }
 
 .category-link {
@@ -1073,45 +1073,78 @@ body {
 
 /* Contenedor general para páginas internas como Categorias, MVO, etc. */
 .page-container {
-    padding-top: 50px;    /* Espacio arriba del título de la página (¡AJUSTA!) */
+    padding-top: 30px;    /* Espacio arriba del título de la página (¡AJUSTA!) */
     padding-bottom: 70px; /* Espacio abajo después del contenido (¡AJUSTA!) */
-    
-    /* --- COLOR DE FONDO PARA EL ÁREA DE CONTENIDO DE LA PÁGINA --- */
-    background-color: #f5f5f5; /* EJEMPLO: Un gris muy claro. ¡CAMBIA ESTE COLOR POR EL QUE QUIERAS DE TU FIGMA! */
-    
-    color: #333333;       /* Color de TEXTO por defecto para la página (oscuro para fondo claro) */
+    color: #000000;       /* Color de TEXTO por defecto para páginas con fondo claro */
+}
 
+/* ESTILOS ESPECÍFICOS PARA EL CONTENEDOR DE LA PÁGINA DE CATEGORÍAS */
+.page-container.categories-page-container { /* Usamos ambas clases para especificidad */
+    background-color: #ffffff; /* EJEMPLO: Un gris muy claro. ¡CAMBIA ESTE COLOR POR EL QUE QUIERAS DE TU FIGMA! */
 }
 
 .categories-page-container .section-header {
-    margin-bottom: 40px; /* Ajustado para más espacio antes del grid */
-    /* Los demás estilos para .section-header (flex, justify-content, etc.) deberían ser globales o heredados */
+    margin-bottom: 0px; /* Espacio entre el header de la página y el grid de categorías */
 }
 
 /* Título H1 "Categorias" en la página de Categorías */
 .categories-page-container h1 { 
-    font-size: 2.5rem;   /* ¡AJUSTA! */
-    color: #A67F41;      /* Color café para el título (¡AJUSTA!) */
-    margin-bottom: 30px; /* Espacio debajo del título (¡AJUSTA!) */
-    font-weight: 500;    /* Era 500, 600 es más común para títulos. ¡AJUSTA! */
+    font-size: 2.5rem;   /* ¡AJUSTA DESDE FIGMA! */
+    color: #A67F41;      /* Color café para el título (¡AJUSTA DESDE FIGMA!) */
+    font-weight: 600;    /* Cambiado a 600, más común para H1. ¡AJUSTA! */
     text-align: left;    /* Alineado a la izquierda */
-    margin-left: 100px;  /* CORREGIDO: Quitado el margen de 100px para alineación estándar. ¡AJUSTA si realmente lo quieres indentado! */
-    /* position: relative; */ /* Ya no es necesario si no hay línea ::after */
-    /* padding-bottom: 1px; */  /* Ya no es necesario */
+    margin-left: 100px;  /* QUITADO el margen de 100px para alineación estándar con el contenido. */
 }
 
-/* Ejemplo: .view-all-link y .category-name */
-.view-all-link {
-    /* ... */
-    color: #333; /* Asegurar contraste con fondo claro de página */
-    /* ... */
+/* Ejemplo: .view-all-link (si lo tuvieras en esta página) y .category-name */
+/* Como quitaste "Ver Todas" de esta página, esta regla no aplicará aquí, pero es un recordatorio */
+.categories-page-container .view-all-link {
+    color: #000000; /* O un color que contraste con #EFEFEF */
 }
+
+.categories-page-container .arrow-icon {
+    /* Ajustar filtro si es necesario para el nuevo fondo */
+}
+
 .category-name {
-    /* ... */
-    color: #333333; /* Asegurar contraste */
-    background-color: #F5F5F5; /* Este fondo podría necesitar ser transparente o igual al nuevo fondo de página */
-                               /* o un blanco para destacar sobre el nuevo fondo de página. */
-    /* background-color: transparent; */ /* Opción */
-    /* background-color: #ffffff; */   /* Opción */
+    font-weight: 600;
+    color: #000000;     /* Color del texto del nombre (¡AJUSTA!) */
+    text-align: left;  /* Centra el nombre debajo de la imagen */
+    padding: 0px 10px;   /* Padding para el área del nombre (¡AJUSTA!) */
+    background-color: #ffffff; /* Fondo blanco para el nombre para que destaque sobre #EFEFEF */
+                               /* O usa 'transparent' si quieres que tome el fondo #EFEFEF */
+    /* ...otros estilos que ya tenías para .category-name... */
+    flex-shrink: 0; 
+    border-bottom-left-radius: 8px; /* Si .category-item tiene border-radius: 8px */
+    border-bottom-right-radius: 8px;
 }
 
+/* Encabezado opcional para la nueva sección de categorías */
+.other-categories-header {
+    text-align: center; /* O left, según tu gusto */
+    margin-top: 60px;  /* Espacio después del primer grid (¡AJUSTA!) */
+    margin-bottom: 30px; /* Espacio antes del nuevo grid (¡AJUSTA!) */
+}
+.other-categories-header h3 {
+    font-size: 1.8rem; /* ¡AJUSTA! */
+    color: #000000;       /* ¡AJUSTA! */
+    font-weight: 600;
+}
+
+/* Grid para las categorías adicionales (Hoteles, Residencias) */
+.category-grid-other {
+    display: grid;
+    gap: 20px; /* Mismo gap que el grid de arriba o diferente si quieres (¡AJUSTA!) */
+    
+    /* --- Dos columnas flexibles e iguales para Hoteles y Residencias --- */
+    grid-template-columns: repeat(2, max-content); 
+    justify-content: center;
+}
+
+/* Los .category-item dentro de .category-grid-other heredarán los estilos generales de .category-item */
+/* Si quieres que tengan un aspect-ratio específico diferente: */
+.category-grid-other .category-item {
+    width: 590px;
+    aspect-ratio: 4 / 3; 
+    border-radius: 15px;
+}
