@@ -38,6 +38,15 @@ public class HomeController : Controller
         return View(); // Esto buscará una vista llamada Categorias.cshtml
     }
 
+    // ----- NUEVO MÉTODO DE ACCIÓN PARA PROPIEDADES -----
+    public IActionResult Propiedades()
+    {
+        ViewData["Title"] = "Nuestras Propiedades - Maka House"; // Título para la pestaña del navegador
+        // Aquí, más adelante, obtendrías la lista de propiedades de tu base de datos
+        // y la pasarías a la vista. Por ahora, la dejamos vacía.
+        return View(); // Esto buscará una vista llamada Propiedades.cshtml
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

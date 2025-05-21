@@ -963,6 +963,7 @@ body {
 .page-container.mvo-page { /* Contenedor principal de la página MVO */
     padding-top: 40px;
     padding-bottom: 60px;
+
 }
 
 /* Estilo para CADA sección (Misión, Visión, Objetivos) */
@@ -1143,4 +1144,367 @@ body {
     width: 590px;
     aspect-ratio: 4 / 3; 
     border-radius: 15px;
+}
+
+/* ---------------------------------------------------- */
+/* PÁGINA DE PROPIEDADES - Layout y Filtros Sidebar     */
+/* ---------------------------------------------------- */
+
+/* Contenedor para el layout de dos columnas (filtros + listado) */
+.properties-layout-container {
+    display: flex;
+    flex-wrap: nowrap; /* Por defecto, no queremos que la sidebar se ponga debajo en escritorio */
+    gap: 30px; /* Espacio entre la sidebar y el listado (¡AJUSTA!) */
+}
+
+.page-container.properties-page-container {
+    background-color: #FFFFFF; /* Fondo blanco específico para esta página (¡AJUSTA!) */
+
+    /* --- ¡AQUÍ AÑADIMOS EL PADDING LATERAL DESEADO! --- */
+    /* Estos valores de padding se APLICARÁN ADEMÁS O EN LUGAR de los de .container, */
+    /* dependiendo de la especificidad o si los de .container se quitan para este caso. */
+    /* Para asegurar que este padding sea el que manda, podemos ser más específicos o */
+    /* asegurarnos de que .container solo tenga un padding base pequeño. */
+    padding-left: 40px;   /* EJEMPLO: Margen/Padding izquierdo (¡AJUSTA!) */
+    padding-right: 40px;  /* EJEMPLO: Margen/Padding derecho (¡AJUSTA!) */
+
+    /* Las propiedades de .container (max-width, margin: auto) ya centran este bloque. */
+    /* Este padding es INTERNO al bloque ya centrado. */
+}
+
+/* Título principal de la página de Propiedades */
+.properties-page-container .page-main-title {
+    font-size: 2.5rem;
+    color: #333; /* ¡AJUSTA! */
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Contenedor para el layout de dos columnas (filtros + listado) */
+.properties-layout-container {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 30px; 
+}
+
+/* Barra Lateral de Filtros */
+.property-filters-sidebar {
+    flex-basis: 280px; /* Ancho de la barra lateral (¡AJUSTA DESDE FIGMA!) */
+    flex-shrink: 0; /* Evita que la barra lateral se encoja */
+    background-color: #ffffff; /* Fondo de la sidebar (¡AJUSTA!) */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra sutil */
+    align-self: flex-start; /* Para que no se estire si el contenido de la derecha es más alto */
+}
+
+.property-filters-sidebar h4 { /* Título "Filtrar Propiedades" */
+    font-size: 1.3rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.filter-section {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0; /* Línea divisoria entre secciones de filtro */
+    padding-bottom: 20px;
+}
+.filter-section:last-of-type { /* Quita la línea del último */
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.filter-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer; /* Para indicar que es clickeable (para colapsar) */
+}
+
+.filter-section-header h5 {
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+    font-weight: 600;
+}
+
+.filter-toggle-icon i {
+    font-size: 0.9rem;
+    color: #777;
+    transition: transform 0.2s ease-in-out;
+}
+/* .filter-section.collapsed .filter-toggle-icon i { transform: rotate(-90deg); } */ /* JS manejaría esto */
+
+.filter-section-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-section-content li {
+    margin-bottom: 10px;
+}
+
+.filter-section-content label {
+    font-size: 0.9rem;
+    color: #555;
+    display: flex; /* Para alinear checkbox y texto */
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-section-content input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.filter-fields-inline {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    align-items: center; 
+}
+
+.filter-group-inline {
+    display: flex;
+    flex-direction: column;
+}
+.filter-group-inline label {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.filter-group-inline input[type="number"] {
+    width: 100%; 
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    box-sizing: border-box; 
+}
+.filter-group-inline input[type="number"]::placeholder {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.filter-apply-button-container {
+    margin-top: 30px;
+}
+.filter-apply-button-container .btn-block { 
+    display: block;
+    width: 100%;
+    padding: 12px; 
+    font-size: 1rem;
+}
+/* Estilos para .btn-primary (si lo usas para el botón de aplicar filtros) */
+.btn-primary { /* Asegúrate de tener esta clase o la que uses en tu botón */
+    background-color: #A67F41; /* ¡AJUSTA! */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    padding: 10px 15px; /* Padding general para botones primary */
+}
+.btn-primary:hover {
+    background-color: #8c6b37; /* ¡AJUSTA! */
+}
+
+
+/* Área de Contenido Principal (Listado de propiedades) */
+.property-listing-area {
+    flex-grow: 1; /* Ocupa el espacio restante */
+}
+
+/* ----- INICIO: ESTILOS PARA EL GRID DE PROPIEDADES Y TARJETAS ----- */
+.property-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas (¡AJUSTA el 300px!) */
+    gap: 30px; /* Espacio entre tarjetas (¡AJUSTA!) */
+}
+
+.property-card {
+    background-color: #ffffff;
+    border-radius: 8px;        /* Bordes redondeados de la tarjeta */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra suave */
+    overflow: hidden;          /* Para que la imagen respete el border-radius superior */
+    display: flex;             
+    flex-direction: column;    /* Contenido de la tarjeta se apila verticalmente */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto hover */
+}
+
+.property-card:hover {
+    transform: translateY(-5px); /* Sube un poco la tarjeta */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+}
+
+.property-card-link {
+    text-decoration: none;     /* Quita subrayado del enlace */
+    color: inherit;            /* Hereda color de texto para que no sea azul por defecto */
+    display: flex;
+    flex-direction: column;
+    height: 100%;              /* El enlace ocupa toda la tarjeta */
+}
+
+.property-image-container {
+    position: relative;        /* Para la etiqueta de estado (En Venta/Renta) */
+    width: 100%;
+    aspect-ratio: 16 / 10;     /* Proporción de la imagen (¡AJUSTA SEGÚN TUS IMÁGENES!) */
+    overflow: hidden;          /* Por si la imagen es más grande que el aspect-ratio */
+}
+
+.property-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* Cubre el área sin deformar, recorta si es necesario */
+    display: block;            /* Quita espacio extra debajo de la imagen */
+}
+
+.property-status-tag { /* Etiqueta "En Venta", "En Renta" */
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #A67F41; /* Color de acento (¡AJUSTA!) */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 1; /* Para estar encima de la imagen */
+}
+.property-tag-renta { /* Estilo específico si es de renta */
+    background-color: #28a745; /* Verde para Renta (¡AJUSTA!) */
+}
+
+.property-info { /* Contenedor para el texto debajo de la imagen */
+    padding: 20px;
+    flex-grow: 1; /* Empuja .property-features hacia abajo */
+    display: flex;
+    flex-direction: column;
+}
+
+.property-title {
+    font-size: 1.2rem;  /* ¡AJUSTA! */
+    font-weight: 600;
+    color: #333;        /* ¡AJUSTA! */
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.property-price {
+    font-size: 1.3rem;  /* ¡AJUSTA! */
+    font-weight: bold;
+    color: #A67F41;     /* Color de acento (¡AJUSTA!) */
+    margin: 0 0 10px 0;
+}
+
+.property-location {
+    font-size: 0.9rem;
+    color: #666;        /* ¡AJUSTA! */
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+}
+.property-location i { /* Si usas Font Awesome para el icono de ubicación */
+    margin-right: 6px;
+    color: #888; /* Color del icono de ubicación */
+}
+
+.property-features {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px 15px; /* Espacio vertical y horizontal entre iconos de características */
+    font-size: 0.85rem;
+    color: #555;       /* ¡AJUSTA! */
+    margin-top: auto;  /* Empuja las características al fondo de .property-info */
+    padding-top: 15px; 
+    border-top: 1px solid #f0f0f0; /* Línea divisoria sutil */
+}
+
+.property-features span {
+    display: flex;
+    align-items: center;
+}
+.property-features i { /* Si usas Font Awesome para iconos de recámaras, baños, etc. */
+    margin-right: 6px;
+    color: #A67F41;    /* Color de acento para estos iconos */
+    font-size: 0.95rem; /* Tamaño de estos iconos */
+}
+
+/* ----- INICIO: ESTILOS PARA LA PAGINACIÓN ----- */
+.pagination-container {
+    margin-top: 50px;     /* Espacio arriba de la paginación */
+    display: flex;
+    justify-content: center; /* Centra los botones de paginación */
+}
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem; /* Bordes redondeados para el grupo */
+}
+.page-item .page-link {
+    position: relative;
+    display: block;
+    padding: 0.6rem 0.9rem; /* Tamaño de los botones de página */
+    margin-left: -1px;     /* Para que los bordes se superpongan */
+    line-height: 1.25;
+    color: #A67F41;        /* Color de los números de página (¡AJUSTA!) */
+    background-color: #fff;
+    border: 1px solid #dee2e6; /* Borde de los botones */
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.page-item.active .page-link {
+    z-index: 3; /* Para que esté encima de los otros */
+    color: #fff;
+    background-color: #A67F41; /* Color de la página activa (¡AJUSTA!) */
+    border-color: #A67F41;     /* ¡AJUSTA! */
+}
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+.page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: inherit; /* Hereda del .pagination */
+    border-bottom-left-radius: inherit;
+}
+.page-item:last-child .page-link {
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+.page-link:hover {
+    z-index: 2;
+    color: #8c6b37; /* Color de texto al pasar el mouse (¡AJUSTA!) */
+    background-color: #e9ecef; /* Fondo al pasar el mouse */
+    border-color: #dee2e6;
+}
+/* ----- FIN: ESTILOS PARA LA PAGINACIÓN ----- */
+/* ----- FIN: ESTILOS PARA EL GRID DE PROPIEDADES Y TARJETAS ----- */
+
+
+/* --- Media Queries para el layout de la Página de Propiedades --- */
+@media (max-width: 992px) { /* Tablets y pantallas más pequeñas */
+    .properties-layout-container {
+        flex-direction: column; /* Apila la sidebar encima del listado */
+        gap: 25px;
+    }
+    .property-filters-sidebar {
+        flex-basis: auto; /* Permite que tome el ancho completo */
+        width: 100%;
+        margin-bottom: 30px; /* Espacio si se apila encima */
+    }
 }

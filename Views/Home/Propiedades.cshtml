@@ -1,0 +1,193 @@
+@{
+    // ViewData["Title"]
+}
+
+<div class="container page-container properties-page-container">
+    
+    <h1 class="page-main-title text-center">Nuestras Propiedades</h1>
+
+    <div class="properties-layout-container"> @* Nuevo contenedor para el layout de 2 columnas *@
+
+        @* ----- INICIO: BARRA LATERAL DE FILTROS (Sidebar) ----- *@
+        <aside class="property-filters-sidebar">
+            <h4>Filtrar Propiedades</h4>
+
+            <div class="filter-section">
+                <div class="filter-section-header">
+                    <h5>Tipo de Propiedad</h5>
+                    <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span> @* Icono para colapsar *@
+                </div>
+                <div class="filter-section-content">
+                    <ul>
+                        <li><label><input type="checkbox" name="tipoPropiedad" value="departamento" checked> Departamentos</label></li>
+                        <li><label><input type="checkbox" name="tipoPropiedad" value="casa"> Casas</label></li>
+                        <li><label><input type="checkbox" name="tipoPropiedad" value="oficina"> Oficinas</label></li>
+                        @* Añade más tipos si es necesario *@
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-section-header">
+                    <h5>Ciudad</h5>
+                    <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                </div>
+                <div class="filter-section-content">
+                    <ul>
+                        <li><label><input type="checkbox" name="ciudad" value="cordoba" checked> Cordoba</label></li>
+                        <li><label><input type="checkbox" name="ciudad" value="buenosaires"> Buenos Aires</label></li>
+                        <li><label><input type="checkbox" name="ciudad" value="santafe"> Santa Fe</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-section-header">
+                    <h5>Barrio o Zona</h5>
+                    <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                </div>
+                <div class="filter-section-content">
+                    <ul>
+                        <li><label><input type="checkbox" name="barrio" value="jardin" checked> Barrio Jardin</label></li>
+                        <li><label><input type="checkbox" name="barrio" value="gralpaz"> Barrio Gral Paz</label></li>
+                        <li><label><input type="checkbox" name="barrio" value="nuevacordoba"> Barrio Nueva Cordoba</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter-section filter-fields-inline">
+                 <div class="filter-group-inline">
+                    <label for="ambientes">Ambientes</label>
+                    <input type="number" id="ambientes" name="ambientes" min="1" placeholder="Ej: 3">
+                </div>
+                <div class="filter-group-inline">
+                    <label for="dormitorios">Dormitorios</label>
+                    <input type="number" id="dormitorios" name="dormitorios" min="0" placeholder="Ej: 2">
+                </div>
+            </div>
+            
+            <div class="filter-section filter-fields-inline">
+                <div class="filter-group-inline">
+                    <label for="banos">Baños</label>
+                    <input type="number" id="banos" name="banos" min="1" placeholder="Ej: 1">
+                </div>
+                <div class="filter-group-inline">
+                    <label for="cochera">Cochera</label>
+                    <input type="number" id="cochera" name="cochera" min="0" placeholder="Ej: 1">
+                </div>
+            </div>
+
+            <div class="filter-apply-button-container">
+                <button type="submit" class="btn btn-primary btn-block">Aplicar Filtros</button>
+            </div>
+
+        </aside>
+        @* ----- FIN: BARRA LATERAL DE FILTROS ----- *@
+
+
+        @* ----- INICIO: ÁREA DE CONTENIDO PRINCIPAL (Listado de Propiedades) ----- *@
+        <main class="property-listing-area">
+            
+            @* Aquí podrías poner opciones para ORDENAR los resultados si quieres *@
+            <div class="sort-options-bar" style="text-align: right; margin-bottom: 20px;">
+                <label for="sort-properties">Ordenar por: </label>
+                <select id="sort-properties" name="sortProperties">
+                    <option value="precio-asc">Precio (Menor a Mayor)</option>
+                    <option value="precio-desc">Precio (Mayor a Menor)</option>
+                    <option value="fecha-reciente">Más Recientes</option>
+                </select>
+            </div>
+
+
+            <div class="property-grid-container">
+                @* --- EJEMPLO DE TARJETA DE PROPIEDAD (Repetirías esto para cada propiedad) --- *@
+                <div class="property-card">
+                    <a href="#" class="property-card-link">
+                        <div class="property-image-container">
+                            <img src="~/images/propiedad-ejemplo-1.jpg" alt="Casa en Venta en Juriquilla">
+                            <span class="property-status-tag">En Venta</span>
+                        </div>
+                        <div class="property-info">
+                            <h3 class="property-title">Hermosa Casa en Juriquilla Santa Fe</h3>
+                            <p class="property-price">$3,500,000 MXN</p>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Juriquilla, Querétaro</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 3 Rec.</span>
+                                <span><i class="fas fa-bath"></i> 2.5 Baños</span>
+                                <span><i class="fas fa-ruler-combined"></i> 200 m²</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                @* --- Otro Ejemplo de Tarjeta --- *@
+                <div class="property-card">
+                    <a href="#" class="property-card-link">
+                        <div class="property-image-container">
+                            <img src="~/images/propiedad-ejemplo-2.jpg" alt="Departamento en Renta Céntrico">
+                            <span class="property-status-tag property-tag-renta">En Renta</span>
+                        </div>
+                        <div class="property-info">
+                            <h3 class="property-title">Departamento Moderno Cerca del Centro</h3>
+                            <p class="property-price">$12,500 MXN / Mes</p>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Centro, Querétaro</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 2 Rec.</span>
+                                <span><i class="fas fa-bath"></i> 2 Baños</span>
+                                <span><i class="fas fa-ruler-combined"></i> 90 m²</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="property-card">
+                    <a href="#" class="property-card-link"> 
+                        <div class="property-image-container">
+                            <img src="~/images/propiedad-ejemplo-3.jpg" alt="Terreno Residencial"> 
+                            <span class="property-status-tag">En Venta</span>
+                        </div>
+                        <div class="property-info">
+                            <h3 class="property-title">Amplio Terreno Residencial en Zibatá</h3>
+                            <p class="property-price">$1,800,000 MXN</p>
+                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Zibatá, Querétaro</p>
+                            <div class="property-features">
+                                <span><i class="fas fa-ruler-combined"></i> 300 m²</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @* --- Añade más tarjetas si es necesario para llenar el grid y probar el scroll --- *@
+            </div>
+
+            @* ----- INICIO: PAGINACIÓN (Placeholder) ----- *@
+            <nav aria-label="Paginación de propiedades" class="pagination-container">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                </ul>
+            </nav>
+            @* ----- FIN: PAGINACIÓN ----- *@
+
+        </main>
+        @* ----- FIN: ÁREA DE CONTENIDO PRINCIPAL ----- *@
+    </div> @* Fin de .properties-layout-container *@
+</div>
+
+@* ----- INICIO: SECCIÓN CONTACTO CTA (CON IMAGEN EDIFICIOS) ----- *@
+<section class="contact-cta-section" >
+    @* Este es el div que ahora tendrá el fondo café y estará centrado *@
+    <div class="container contact-cta-container"> 
+        <div class="contact-cta-image-content">
+            <img src="~/images/edificios-contacto.png" alt="Edificios decorativos">
+        </div>
+        <div class="contact-cta-text-content">
+            <h2 class="contact-cta-title">Contáctanos</h2>
+            <p class="contact-cta-subtitle">Sabemos lo que necesitas</p>
+            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a>
+        </div>
+    </div>
+</section>
+@* ----- FIN: SECCIÓN CONTACTO CTA ----- *@
