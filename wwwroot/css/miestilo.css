@@ -1102,10 +1102,6 @@ body {
     color: #000000; /* O un color que contraste con #EFEFEF */
 }
 
-.categories-page-container .arrow-icon {
-    /* Ajustar filtro si es necesario para el nuevo fondo */
-}
-
 .category-name {
     font-weight: 600;
     color: #000000;     /* Color del texto del nombre (¡AJUSTA!) */
