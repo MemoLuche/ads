@@ -810,7 +810,6 @@ body {
 .testimonials-section .section-title-group {
     text-align: center; /* Para que el título y subtítulo se alineen a la izquierda dentro de este grupo */
     flex-grow: 1;  
-    padding-left: 250px;
 }
 
 .testimonials-section .section-main-title {

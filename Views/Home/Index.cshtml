@@ -65,7 +65,7 @@
             <div class="category-grid">
                 @* Item 1: Departamentos (Este se ve bien en tu captura) *@
                 <div class="category-item category-item-dept">
-                    <a href="#" class="category-link">
+                    <a asp-controller="Home" asp-action="Propiedades" class="category-link">
                         <img src="~/images/cat-departamentos.jpg" alt="Departamentos">
                         <span class="most-wanted-banner">Lo Mas Buscado</span>
                     </a>
@@ -74,7 +74,7 @@
 
                 @* Item 2: Casas (Verifica este bloque) *@
                 <div class="category-item category-item-casas">
-                    <a href="#" class="category-link">
+                    <a asp-controller="Home" asp-action="Propiedades" class="category-link">
                         <img src="~/images/cat-casas.jpg" alt="Casas"> @* ¿Es este el nombre correcto de tu imagen? *@
                     </a>
                     <p class="category-name">Casas</p>
@@ -82,7 +82,7 @@
 
                 @* Item 3: Comercios (Verifica este bloque) *@
                 <div class="category-item category-item-comercios">
-                    <a href="#" class="category-link">
+                    <a asp-controller="Home" asp-action="Propiedades" class="category-link">
                         <img src="~/images/cat-comercios.jpg" alt="Comercios"> @* ¿Es este el nombre correcto de tu imagen? *@
                     </a>
                     <p class="category-name">Comercios</p>
@@ -90,7 +90,7 @@
 
                 @* Item 4: Countries (Verifica este bloque) *@
                 <div class="category-item category-item-countries">
-                    <a href="#" class="category-link">
+                    <a asp-controller="Home" asp-action="Propiedades" class="category-link">
                         <img src="~/images/cat-countries.jpg" alt="Countries"> @* ¿Es este el nombre correcto de tu imagen? *@
                     </a>
                     <p class="category-name">Countries</p>
@@ -111,9 +111,6 @@
                 <h2 class="section-main-title">Testimonios</h2>
                 <p class="section-subtitle">Lo que nuestros clientes dicen</p>
             </div>
-            <a href="#" class="view-all-link testimonials-view-all-style"> Ver Más
-                <img src="~/images/icono-flecha-derecha.png" alt="Ver Todas" class="arrow-icon">
-            </a>
         </div>
 
         <div class="testimonial-cards-container">
@@ -188,7 +185,7 @@
         <div class="contact-cta-text-content">
             <h2 class="contact-cta-title">Contáctanos</h2>
             <p class="contact-cta-subtitle">Sabemos lo que necesitas</p>
-            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a>
+            <a asp-controller="Home" asp-action="Contacto" class="btn btn-contact-cta-action">Enviar Mensaje</a>
         </div>
     </div>
 </section>
