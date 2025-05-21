@@ -1,9 +1,19 @@
+@model IEnumerable<MiProyectoPortable.Models.Propiedad>
+@using System.Globalization;
 @{
-    // ViewData["Title"]
+    ViewData["Title"] = "Nuestras Propiedades - Maka House";
+
+    // Helper para obtener los valores de ViewData de forma segura
+    var selectedTipos = ViewData["SelectedTipos"] as List<string> ?? new List<string>();
+    var selectedCiudades = ViewData["SelectedCiudades"] as List<string> ?? new List<string>();
+    var selectedBarrios = ViewData["SelectedBarrios"] as List<string> ?? new List<string>();
+    var dormitoriosValue = ViewData["DormitoriosValue"] as int?;
+    var banosValue = ViewData["BanosValue"] as int?;
+    var cocherasValue = ViewData["CocherasValue"] as int?; // El name del input en el form es 'cocheras'
+    var currentSort = ViewData["CurrentSort"] as string;
 }
 
 <div class="container page-container properties-page-container">
-    
     <h1 class="page-main-title text-center">Nuestras Propiedades</h1>
 
     <div class="properties-layout-container"> @* Nuevo contenedor para el layout de 2 columnas *@
@@ -12,75 +22,87 @@
         <aside class="property-filters-sidebar">
             <h4>Filtrar Propiedades</h4>
 
-            <div class="filter-section">
-                <div class="filter-section-header">
-                    <h5>Tipo de Propiedad</h5>
-                    <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span> @* Icono para colapsar *@
+            <form method="get" asp-controller="Home" asp-action="Propiedades">
+                <div class="filter-section">
+                    <div class="filter-section-header">
+                        <h5>Tipo de Propiedad</h5>
+                        <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                    </div>
+                    <div class="filter-section-content">
+                        <ul>
+                            <li><label><input type="checkbox" name="tipoPropiedad" value="Departamento" @(selectedTipos.Contains("Departamento") ? "checked" : "")> Departamentos</label></li>
+                            <li><label><input type="checkbox" name="tipoPropiedad" value="Casa" @(selectedTipos.Contains("Casa") ? "checked" : "")> Casas</label></li>
+                            <li><label><input type="checkbox" name="tipoPropiedad" value="Oficina" @(selectedTipos.Contains("Oficina") ? "checked" : "")> Oficinas</label></li>
+                            <li><label><input type="checkbox" name="tipoPropiedad" value="Terreno" @(selectedTipos.Contains("Terreno") ? "checked" : "")> Terrenos</label></li>
+                            @* Los 'value' deben coincidir con los valores de Propiedad.TipoPropiedad en tu BD/modelo *@
+                        </ul>
+                    </div>
                 </div>
-                <div class="filter-section-content">
-                    <ul>
-                        <li><label><input type="checkbox" name="tipoPropiedad" value="departamento" checked> Departamentos</label></li>
-                        <li><label><input type="checkbox" name="tipoPropiedad" value="casa"> Casas</label></li>
-                        <li><label><input type="checkbox" name="tipoPropiedad" value="oficina"> Oficinas</label></li>
-                        @* Añade más tipos si es necesario *@
-                    </ul>
-                </div>
-            </div>
 
-            <div class="filter-section">
-                <div class="filter-section-header">
-                    <h5>Ciudad</h5>
-                    <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                <div class="filter-section">
+                    <div class="filter-section-header">
+                        <h5>Ciudad</h5>
+                        <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                    </div>
+                    <div class="filter-section-content">
+                        <ul>
+                            <li><label><input type="checkbox" name="ciudad" value="Cordoba" @(selectedCiudades.Contains("Cordoba") ? "checked" : "")> Cordoba</label></li>
+                            <li><label><input type="checkbox" name="ciudad" value="Buenos Aires" @(selectedCiudades.Contains("Buenos Aires") ? "checked" : "")> Buenos Aires</label></li>
+                            <li><label><input type="checkbox" name="ciudad" value="Santa Fe" @(selectedCiudades.Contains("Santa Fe") ? "checked" : "")> Santa Fe</label></li>
+                            <li><label><input type="checkbox" name="ciudad" value="Querétaro" @(selectedCiudades.Contains("Querétaro") ? "checked" : "")> Querétaro</label></li>
+                             @* Estos 'value' se usarán para buscar en Propiedad.Ubicacion con .Contains() *@
+                        </ul>
+                    </div>
                 </div>
-                <div class="filter-section-content">
-                    <ul>
-                        <li><label><input type="checkbox" name="ciudad" value="cordoba" checked> Cordoba</label></li>
-                        <li><label><input type="checkbox" name="ciudad" value="buenosaires"> Buenos Aires</label></li>
-                        <li><label><input type="checkbox" name="ciudad" value="santafe"> Santa Fe</label></li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="filter-section">
-                <div class="filter-section-header">
-                    <h5>Barrio o Zona</h5>
-                    <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                <div class="filter-section">
+                    <div class="filter-section-header">
+                        <h5>Barrio o Zona</h5>
+                        <span class="filter-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                    </div>
+                    <div class="filter-section-content">
+                        <ul>
+                            <li><label><input type="checkbox" name="barrio" value="Jardin" @(selectedBarrios.Contains("Jardin") ? "checked" : "")> Barrio Jardin</label></li>
+                            <li><label><input type="checkbox" name="barrio" value="Gral Paz" @(selectedBarrios.Contains("Gral Paz") ? "checked" : "")> Barrio Gral Paz</label></li>
+                            <li><label><input type="checkbox" name="barrio" value="Nueva Cordoba" @(selectedBarrios.Contains("Nueva Cordoba") ? "checked" : "")> Barrio Nueva Cordoba</label></li>
+                            <li><label><input type="checkbox" name="barrio" value="Juriquilla" @(selectedBarrios.Contains("Juriquilla") ? "checked" : "")> Juriquilla</label></li>
+                            <li><label><input type="checkbox" name="barrio" value="Zibatá" @(selectedBarrios.Contains("Zibatá") ? "checked" : "")> Zibatá</label></li>
+                            <li><label><input type="checkbox" name="barrio" value="Centro" @(selectedBarrios.Contains("Centro") ? "checked" : "")> Centro</label></li>
+                            @* Estos 'value' se usarán para buscar en Propiedad.Ubicacion con .Contains() *@
+                        </ul>
+                    </div>
                 </div>
-                <div class="filter-section-content">
-                    <ul>
-                        <li><label><input type="checkbox" name="barrio" value="jardin" checked> Barrio Jardin</label></li>
-                        <li><label><input type="checkbox" name="barrio" value="gralpaz"> Barrio Gral Paz</label></li>
-                        <li><label><input type="checkbox" name="barrio" value="nuevacordoba"> Barrio Nueva Cordoba</label></li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="filter-section filter-fields-inline">
-                 <div class="filter-group-inline">
-                    <label for="ambientes">Ambientes</label>
-                    <input type="number" id="ambientes" name="ambientes" min="1" placeholder="Ej: 3">
+                @* El filtro 'ambientes' no se incluye por falta de mapeo claro al modelo Propiedad actual. *@
+                @* <div class="filter-section filter-fields-inline">
+                    <div class="filter-group-inline">
+                        <label for="ambientes">Ambientes</label>
+                        <input type="number" id="ambientes" name="ambientes" min="1" placeholder="Ej: 3" value="@ViewData["AmbientesValue"]">
+                    </div>
+                </div> *@
+                
+                <div class="filter-section filter-fields-inline">
+                    <div class="filter-group-inline">
+                        <label for="dormitorios">Dormitorios</label>
+                        <input type="number" id="dormitorios" name="dormitorios" min="0" placeholder="Ej: 2" value="@dormitoriosValue">
+                    </div>
+                     <div class="filter-group-inline">
+                        <label for="banos">Baños</label>
+                        <input type="number" id="banos" name="banos" min="0" step="0.5" placeholder="Ej: 1" value="@banosValue">
+                    </div>
                 </div>
-                <div class="filter-group-inline">
-                    <label for="dormitorios">Dormitorios</label>
-                    <input type="number" id="dormitorios" name="dormitorios" min="0" placeholder="Ej: 2">
+                
+                <div class="filter-section filter-fields-inline">
+                    <div class="filter-group-inline">
+                        <label for="cochera">Cochera</label>
+                        <input type="number" id="cochera" name="cocheras" min="0" placeholder="Ej: 1" value="@cocherasValue"> @* name="cocheras" para coincidir con el parámetro del controller *@
+                    </div>
                 </div>
-            </div>
-            
-            <div class="filter-section filter-fields-inline">
-                <div class="filter-group-inline">
-                    <label for="banos">Baños</label>
-                    <input type="number" id="banos" name="banos" min="1" placeholder="Ej: 1">
-                </div>
-                <div class="filter-group-inline">
-                    <label for="cochera">Cochera</label>
-                    <input type="number" id="cochera" name="cochera" min="0" placeholder="Ej: 1">
-                </div>
-            </div>
 
-            <div class="filter-apply-button-container">
-                <button type="submit" class="btn btn-primary btn-block">Aplicar Filtros</button>
-            </div>
-
+                <div class="filter-apply-button-container">
+                    <button type="submit" class="btn btn-primary btn-block">Aplicar Filtros</button>
+                </div>
+            </form>
         </aside>
         @* ----- FIN: BARRA LATERAL DE FILTROS ----- *@
 
@@ -88,97 +110,111 @@
         @* ----- INICIO: ÁREA DE CONTENIDO PRINCIPAL (Listado de Propiedades) ----- *@
         <main class="property-listing-area">
             
-            @* Aquí podrías poner opciones para ORDENAR los resultados si quieres *@
             <div class="sort-options-bar" style="text-align: right; margin-bottom: 20px;">
                 <label for="sort-properties">Ordenar por: </label>
-                <select id="sort-properties" name="sortProperties">
-                    <option value="precio-asc">Precio (Menor a Mayor)</option>
-                    <option value="precio-desc">Precio (Mayor a Menor)</option>
-                    <option value="fecha-reciente">Más Recientes</option>
+                @* Este select debe estar DENTRO del <form> de filtros para que su valor se envíe.
+                   O usar JavaScript para actualizar un input hidden 'sortOrder' en el form principal.
+                   Por simplicidad, lo integramos al form principal cambiando su 'name' a 'sortOrder'
+                   y usando onchange para enviar el form.
+                *@
+                <select id="sort-properties" name="sortOrder" onchange="this.closest('form').submit();" class="form-control-sm" 
+                    aria-label="Ordenar propiedades" style="display: inline-block; width: auto; padding: 0.375rem 0.75rem;">
+                    <option value="fecha-reciente" selected="@(string.IsNullOrEmpty(currentSort) || currentSort == "fecha-reciente")">Más Recientes</option>
+                    <option value="precio-asc" selected="@(currentSort == "precio-asc")">Precio (Menor a Mayor)</option>
+                    <option value="precio-desc" selected="@(currentSort == "precio-desc")">Precio (Mayor a Menor)</option>
                 </select>
             </div>
 
-
             <div class="property-grid-container">
-                @* --- EJEMPLO DE TARJETA DE PROPIEDAD (Repetirías esto para cada propiedad) --- *@
-                <div class="property-card">
-                    <a href="#" class="property-card-link">
-                        <div class="property-image-container">
-                            <img src="~/images/propiedad-ejemplo-1.jpg" alt="Casa en Venta en Juriquilla">
-                            <span class="property-status-tag">En Venta</span>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var propiedad in Model)
+                    {
+                        <div class="property-card">
+                            @* Idealmente, el enlace llevaría a una página de detalle: asp-controller="Home" asp-action="DetallePropiedad" asp-route-id="@propiedad.Id" *@
+                            <a href="#" class="property-card-link">
+                                <div class="property-image-container">
+                                    <img src="@Url.Content(propiedad.RutaImagenPrincipal ?? "~/images/propiedad-default.png")" alt="Imagen de @propiedad.Titulo">
+                                    <span class="property-status-tag @(propiedad.TipoOperacion == "Renta" ? "property-tag-renta" : "")">
+                                        @propiedad.TipoOperacion
+                                    </span>
+                                </div>
+                                <div class="property-info">
+                                    <h3 class="property-title">@propiedad.Titulo</h3>
+                                    <p class="property-price">
+                                        @if (propiedad.Precio > 0)
+                                        {
+                                            @propiedad.Precio.ToString("C0", CultureInfo.GetCultureInfo("es-MX"))
+                                            @if (propiedad.TipoOperacion == "Renta")
+                                            {
+                                                <span> / Mes</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span>Consultar Precio</span>
+                                        }
+                                    </p>
+                                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> @propiedad.Ubicacion</p>
+                                    <div class="property-features">
+                                        @if (propiedad.Habitaciones.HasValue && propiedad.Habitaciones > 0)
+                                        {
+                                            <span><i class="fas fa-bed"></i> @propiedad.Habitaciones Rec.</span>
+                                        }
+                                        @if (propiedad.Banos.HasValue && propiedad.Banos > 0)
+                                        {
+                                            <span><i class="fas fa-bath"></i> @propiedad.Banos Baños</span>
+                                        }
+                                        @if (propiedad.MetrosCuadrados.HasValue && propiedad.MetrosCuadrados > 0)
+                                        {
+                                            <span><i class="fas fa-ruler-combined"></i> @propiedad.MetrosCuadrados m²</span>
+                                        }
+                                        @if (propiedad.Cocheras.HasValue && propiedad.Cocheras > 0)
+                                        {
+                                            <span><i class="fas fa-car"></i> @propiedad.Cocheras Coch.</span>
+                                        }
+                                        else if (propiedad.Cocheras.HasValue && propiedad.Cocheras == 0 && (propiedad.TipoPropiedad == "Casa" || propiedad.TipoPropiedad == "Departamento"))
+                                        {
+                                            @* Opcional: mostrar si no tiene cochera *@
+                                            @* <span><i class="fas fa-car-side" style="color: #ccc;"></i> Sin Coch.</span> *@
+                                        }
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="property-info">
-                            <h3 class="property-title">Hermosa Casa en Juriquilla Santa Fe</h3>
-                            <p class="property-price">$3,500,000 MXN</p>
-                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Juriquilla, Querétaro</p>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 3 Rec.</span>
-                                <span><i class="fas fa-bath"></i> 2.5 Baños</span>
-                                <span><i class="fas fa-ruler-combined"></i> 200 m²</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                @* --- Otro Ejemplo de Tarjeta --- *@
-                <div class="property-card">
-                    <a href="#" class="property-card-link">
-                        <div class="property-image-container">
-                            <img src="~/images/propiedad-ejemplo-2.jpg" alt="Departamento en Renta Céntrico">
-                            <span class="property-status-tag property-tag-renta">En Renta</span>
-                        </div>
-                        <div class="property-info">
-                            <h3 class="property-title">Departamento Moderno Cerca del Centro</h3>
-                            <p class="property-price">$12,500 MXN / Mes</p>
-                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Centro, Querétaro</p>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 2 Rec.</span>
-                                <span><i class="fas fa-bath"></i> 2 Baños</span>
-                                <span><i class="fas fa-ruler-combined"></i> 90 m²</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="property-card">
-                    <a href="#" class="property-card-link"> 
-                        <div class="property-image-container">
-                            <img src="~/images/propiedad-ejemplo-3.jpg" alt="Terreno Residencial"> 
-                            <span class="property-status-tag">En Venta</span>
-                        </div>
-                        <div class="property-info">
-                            <h3 class="property-title">Amplio Terreno Residencial en Zibatá</h3>
-                            <p class="property-price">$1,800,000 MXN</p>
-                            <p class="property-location"><i class="fas fa-map-marker-alt"></i> Zibatá, Querétaro</p>
-                            <div class="property-features">
-                                <span><i class="fas fa-ruler-combined"></i> 300 m²</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @* --- Añade más tarjetas si es necesario para llenar el grid y probar el scroll --- *@
+                    }
+                }
+                else
+                {
+                    <div class="text-center" style="grid-column: 1 / -1; padding: 20px;"> @* Para que ocupe todo el ancho del grid *@
+                        <p>No se encontraron propiedades que coincidan con los criterios de búsqueda.</p>
+                    </div>
+                }
             </div>
 
             @* ----- INICIO: PAGINACIÓN (Placeholder) ----- *@
-            <nav aria-label="Paginación de propiedades" class="pagination-container">
-                <ul class="pagination">
-                    <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-                </ul>
-            </nav>
+            @if (Model != null && Model.Any()) @* Mostrar paginación solo si hay resultados *@
+            {
+                <nav aria-label="Paginación de propiedades" class="pagination-container">
+                    <ul class="pagination">
+                        <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                    </ul>
+                </nav>
+            }
             @* ----- FIN: PAGINACIÓN ----- *@
 
         </main>
         @* ----- FIN: ÁREA DE CONTENIDO PRINCIPAL ----- *@
     </div> @* Fin de .properties-layout-container *@
-</div>
+</div> @* Fin de .container page-container properties-page-container *@
+
 
 @* ----- INICIO: SECCIÓN CONTACTO CTA (CON IMAGEN EDIFICIOS) ----- *@
 <section class="contact-cta-section" >
-    @* Este es el div que ahora tendrá el fondo café y estará centrado *@
     <div class="container contact-cta-container"> 
         <div class="contact-cta-image-content">
             <img src="~/images/edificios-contacto.png" alt="Edificios decorativos">
@@ -186,8 +222,52 @@
         <div class="contact-cta-text-content">
             <h2 class="contact-cta-title">Contáctanos</h2>
             <p class="contact-cta-subtitle">Sabemos lo que necesitas</p>
-            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a>
+            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a> @* Considera usar asp-action o una URL específica *@
         </div>
     </div>
 </section>
 @* ----- FIN: SECCIÓN CONTACTO CTA ----- *@
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Script para colapsar/expandir secciones de filtros
+            const filterHeaders = document.querySelectorAll('.filter-section-header');
+            filterHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.filter-toggle-icon i');
+                    
+                    if (content.style.display === 'none' || content.style.display === '') {
+                        content.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        content.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+
+            // Para el select de ordenamiento, el onchange="this.closest('form').submit();" en el HTML
+            // se encarga de enviar el formulario. No se necesita JS adicional aquí si el select está
+            // dentro del mismo <form> que los otros filtros, o si el JS se asegura de que 'sortOrder'
+            // se incluya en los datos del formulario principal.
+            // He puesto el select DENTRO del form en la estructura de arriba para simplificar.
+            // Si el select de ordenamiento está fuera del form principal, necesitarías JS para
+            // tomar su valor y añadirlo como un input hidden al form antes de enviarlo, o
+            // construir la URL y navegar.
+            // El 'name' del select de ordenamiento debe ser 'sortOrder' para que coincida con el parámetro del controller.
+            // Y el select debe estar dentro del <form> de los filtros o usar JS para que el submit button lo incluya.
+
+            // Si el select de ordenamiento está fuera del form y se quiere que envíe el form principal:
+            const sortSelect = document.getElementById('sort-properties');
+            if (sortSelect) {
+                 // Si el select está DENTRO del form, y el form se envía por el botón "Aplicar Filtros",
+                 // el valor del select (si tiene name="sortOrder") se enviará.
+                 // El onchange="this.closest('form').submit();" es para que cambie inmediatamente.
+            }
+        });
+    </script>
+}

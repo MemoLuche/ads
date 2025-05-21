@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using MiProyectoPortable.Data; // Reemplaza con tu namespace
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configurar DbContext para SQLite
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
