@@ -1,0 +1,58 @@
+
+@* Usamos .container para centrar y limitar ancho en la página de categorías *@
+<div class="container page-container categories-page-container"> 
+
+    <div class="section-header"> @* Encabezado de la sección, igual que en Index *@
+        <div class="section-title">
+            <h1>Categorias</h1> @* Usamos H1 porque es el título principal de ESTA página *@
+        </div>
+        @* No necesitamos el enlace "Ver Todas" aquí, ya que ESTA es la página de "todas" las categorías *@
+        @* Pero si quisieras un filtro o algo más, iría aquí o debajo *@
+    </div>
+
+    <div class="category-grid">
+        @* Item 1: Departamentos *@
+        <div class="category-item category-item-dept">
+            <a href="#" class="category-link"> @* Este enlace podría llevar a la página de listado de Departamentos *@
+                <img src="~/images/cat-departamentos.jpg" alt="Departamentos">
+                <span class="most-wanted-banner">Lo Mas Buscado</span>
+            </a>
+            <p class="category-name">Departamentos</p>
+        </div>
+
+        @* Item 2: Casas *@
+        <div class="category-item category-item-casas">
+            <a href="#" class="category-link"> @* Enlace a listado de Casas *@
+                <img src="~/images/cat-casas.jpg" alt="Casas">
+            </a>
+            <p class="category-name">Casas</p>
+        </div>
+
+        @* Item 3: Comercios *@
+        <div class="category-item category-item-comercios">
+            <a href="#" class="category-link"> @* Enlace a listado de Comercios *@
+                <img src="~/images/cat-comercios.jpg" alt="Comercios">
+            </a>
+            <p class="category-name">Comercios</p>
+        </div>
+
+        @* Item 4: Countries *@
+        <div class="category-item category-item-countries">
+            <a href="#" class="category-link"> @* Enlace a listado de Countries *@
+                <img src="~/images/cat-countries.jpg" alt="Countries">
+            </a>
+            <p class="category-name">Countries</p>
+        </div>
+
+        @* --- PUEDES AÑADIR MÁS CATEGORÍAS AQUÍ SI ES NECESARIO --- *@
+        @* Ejemplo de una quinta categoría, necesitarías definir su CSS grid-placement si el flujo automático no es el deseado * /
+        @*
+        <div class="category-item category-item-terrenos">
+            <a href="#" class="category-link">
+                <img src="~/images/cat-terrenos.jpg" alt="Terrenos">
+            </a>
+            <p class="category-name">Terrenos</p>
+        </div>
+        *@
+    </div>
+</div>

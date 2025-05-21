@@ -1,0 +1,1117 @@
+/* ---------------------------------------------------- */
+/* SECCIÓN ESTILOS GENEREALES                  */
+/* ---------------------------------------------------- */
+body {
+    /* !!! IMPORTANTE: Cambia 'Arial' por la fuente principal de tu Figma !!! */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Mejor manejo de padding/border */
+    background-color: #ffffff; /* Un color de fondo general suave (¡Ajusta!) */
+    color: #333; /* Color de texto por defecto */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Barra superior fina */
+.top-bar {
+    height: 40px; /* ¡Ajusta la altura exacta de tu Figma! */
+    /* !!! CAMBIA ESTE COLOR POR EL CAFÉ EXACTO DE TU DISEÑO FIGMA !!! */
+    background-color: #26272b; /* Ejemplo: saddlebrown (¡Usa tu código Hex: #xxxxxx !)*/
+    width: 100%;
+}
+
+/* Header Principal */
+.main-header {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 10px 0; /* Padding vertical reducido (¡Ajusta!) */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra más sutil (¡Ajusta!) */
+    position: sticky; /* Header fijo opcional */
+    top: 0; /* Necesario con sticky */
+    z-index: 1000; /* Para que esté sobre otro contenido */
+    width: 100%;
+}
+
+.main-header .container-header {
+    max-width: 100%; /* Ancho máximo del contenido del header (¡Ajusta!) */
+    height: 80px;
+    margin: 0 auto; /* Centrar */
+    padding: 0 20px; /* Espaciado lateral */
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, resto a la derecha */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.main-header .logo img {
+    max-height: 100px; /* Altura máxima del logo (¡Ajusta!) */
+    display: block;
+}
+
+/* Navegación y Botón agrupados a la derecha */
+.main-header .main-nav,
+.main-header .header-contact-button {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav li {
+    margin-left: 20px; /* Espacio entre links (¡Ajusta!) */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #000000; /* ¡AJUSTA DESDE FIGMA! */
+    font-size: 16px; /* CORREGIDO: Añadida unidad px */
+    font-weight: 500; /* ¡AJUSTA DESDE FIGMA! */
+}
+
+.main-nav a:hover {
+    color: #0056b3; /* Color al pasar el mouse (¡Ajusta!) */
+}
+
+/* Botón de Contacto Específico */
+.header-contact-button .btn-contact {
+    background-color: #A67F41; /* ¡REEMPLAZA CON TU COLOR DE FIGMA! */
+    color: #FFFFFF;
+    padding: 20px 40px; /* ¡AJUSTA DESDE FIGMA! */
+    border-radius: 4px; /* ¡AJUSTA DESDE FIGMA! */
+    text-decoration: none;
+    font-weight: 600; /* ¡AJUSTA DESDE FIGMA! */
+    font-size: 16px; /* CORREGIDO: Añadida unidad px */
+    margin-left: 25px; /* ¡AJUSTA DESDE FIGMA! */
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Contenedor para agrupar la navegación y el botón */
+.nav-button-group {
+    display: flex; /* Usa flexbox para alinear nav y botón */
+    align-items: center; /* Centra verticalmente los items (nav y botón) */
+}
+
+.header-contact-button .btn-contact:hover {
+    background-color: #b89a74; /* Color hover (¡Ajusta!) */
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('/images/hero-background.jpg'); /* ¡TU IMAGEN! */
+    background-size: cover;
+    background-position: center center;
+    height: 80vh; /* O la altura que hayas definido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Contenido dentro del Hero (Aquí aplicamos el nuevo fondo y ajustes) */
+.hero-section .hero-content {
+    position: relative;
+    z-index: 2;
+    /* Fondo gris oscuro (#333333) con 70% de opacidad. ¡AJUSTA LA OPACIDAD (0.7) SI ES NECESARIO! */
+    background-color: rgba(51, 51, 51, 0.5);
+    padding: 25px 50px;         /* Aumenté un poco el padding (¡AJUSTA A TU GUSTO!) */
+    border-radius: 8px;         /* Opcional: Esquinas redondeadas (¡AJUSTA!) */
+    display: inline-block;
+}
+
+.hero-section h1 {
+    color: rgb(255, 255, 255);
+    /* !!! REEMPLAZA 'Nombre De Tu Fuente Figma' CON EL NOMBRE REAL DE TU FUENTE !!! */
+    /* Si el nombre tiene espacios, ponlo entre comillas simples o dobles. */
+    /* Impact es solo un ejemplo de fuente llamativa, usa la tuya. */
+    font-family: Poppins;
+    font-size: 4rem;           /* Hice la fuente MÁS GRANDE (¡AJUSTA A TU GUSTO!) */
+    font-weight: 700;           /* Peso de fuente (¡Ajusta si tu fuente lo requiere!) */
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra, opcional */
+}
+
+/* ---------------------------------------------------- */
+/* SECCIÓN ¿QUIENES SOMOS?                  */
+/* ---------------------------------------------------- */
+.about-us-section {
+    padding-top: 80px; 
+    padding-bottom: 60px; 
+    background-color: #ffffff; 
+    position: relative; 
+}
+
+.about-us-section .container {
+    max-width: 1140px; 
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.about-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; 
+    align-items: flex-start; 
+    position: relative; /* Para el ::before */
+    padding-top: 100px; 
+}
+
+/* Franja Café de Fondo */
+.about-columns::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;       /* CAMBIO: Para que inicie al borde de .about-columns */
+    width: 1260px;
+    height: 150px; /* ¡AJUSTA DESDE FIGMA! */
+    background-color: #A67F41; /* ¡AJUSTA DESDE FIGMA! */
+    z-index: 0;
+}
+
+/* Ajustes para que las columnas y su contenido estén DELANTE de la franja */
+.about-image-column,
+.about-text-column {
+    position: relative; /* Necesario para que z-index funcione */
+    z-index: 1; /* Asegura que esté sobre el ::before */
+    /* flex: 1; min-width: 300px; etc. se mantienen como antes */
+}
+
+/* Columna Izquierda (Imagen) */
+.about-image-column {
+    flex: 1; 
+    min-width: 300px;
+    position: relative; /* Para posicionar las tarjetas info-item */
+    z-index: 1; /* Encima de la franja ::before */
+    margin-top: 0; /* CORREGIDO: Eliminado margen negativo */
+    /* Añade padding-top aquí si necesitas espacio entre el inicio de la columna y la imagen */
+    /* padding-top: 30px; */ /* EJEMPLO */
+}
+
+.about-building-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* ¡AJUSTA DESDE FIGMA! */
+    display: block; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* ¡AJUSTA DESDE FIGMA! */
+}
+
+/* Estilos base para las tarjetas de información flotantes */
+.info-item.card-style {
+    position: absolute; 
+    background-color: #ffffff; 
+    padding: 20px 25px;  
+    border-radius: 8px;  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    display: flex;
+    align-items: center;
+    z-index: 2; /* Asegura que estén sobre la imagen del edificio */
+}
+
+.info-item.card-style img { /* Iconos */
+    width: 40px;   /* ¡AJUSTA DESDE FIGMA! */
+    height: 40px;  /* ¡AJUSTA DESDE FIGMA! */
+    margin-right: 10px; 
+}
+
+.info-item.card-style p {
+    margin: 0;
+    font-size: 1rem; /* ¡AJUSTA DESDE FIGMA! */
+    color: #000000;   /* ¡AJUSTA DESDE FIGMA! */
+    line-height: 1.4;
+}
+
+/* Posicionamiento específico para cada tarjeta */
+/* !!! ¡OBTÉN ESTOS VALORES DE TOP Y RIGHT/LEFT DE TU FIGMA! !!! */
+.info-item-1 {
+    bottom: 120px;    /* EJEMPLO: Distancia desde arriba */
+    right: 10px;  /* CORREGIDO EJEMPLO: Distancia desde la derecha (Positivo = DENTRO) */
+    width: 240px; /* ANCHO DE LA TARJETA (¡AJUSTA DESDE FIGMA!) */
+
+}
+
+.info-item-2 {
+    bottom: 10px;   /* EJEMPLO: Distancia desde arriba, debajo del primero */
+    right: 10px;  /* CORREGIDO EJEMPLO: Misma alineación desde la derecha */
+    width: 280px; /* ANCHO DE LA TARJETA (¡AJUSTA DESDE FIGMA!) */
+
+}
+
+/* Columna Derecha (Texto) */
+.about-text-column {
+    flex: 1; 
+    min-width: 300px;
+    position: relative; 
+    z-index: 1; /* Encima de la franja ::before */
+    text-align: center;
+}
+
+.about-text-column h2 { /* "¿Quiénes somos?" */
+    font-size: 3rem; /* ¡Ajusta! */
+    color: #FFFFFF; /* TEXTO BLANCO para que contraste con la franja café */
+    margin-top: 0; 
+    margin-bottom: 20px; 
+    padding-top: 20px; /* Espacio para que no esté pegado al borde superior de la franja (¡AJUSTA!) */
+    position: relative; /* Para asegurar que está sobre el z-index: 0 del ::before */
+    z-index: 1;
+    bottom: 70px;
+}
+
+.about-text-column p { /* Párrafo descriptivo */
+    font-size: 1.5rem; 
+    line-height: 1.3; 
+    text-align: center;
+    color: #000000; 
+    margin-bottom: 120px;
+    /* Si este párrafo queda sobre la franja café, también necesitará color claro y z-index:1 */
+}
+
+/* Wrapper para centrar botón (si lo usas) */
+.button-wrapper-center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-secondary-custom { /* Botón "Misión, Visión..." */
+    display: inline-block; 
+    background-color: #A67F41; /* Mismo color café o el que corresponda */
+    color: #FFFFFF;
+    padding: 10px 45px; 
+    border-radius: 10px; 
+    text-decoration: none;
+    font-weight: 600; 
+    font-size: 20px;
+    transition: background-color 0.2s ease;
+    text-align: center;
+    /* Si este botón queda sobre la franja café, puede que no necesite fondo y solo borde, o un fondo que contraste */
+}
+
+.btn-secondary-custom:hover {
+    background-color: #8c6b37; /* Café más oscuro para hover */
+}
+
+/* --- Media Queries (Revisadas un poco) --- */
+@media (max-width: 992px) { 
+    .info-item.card-style {
+        width: 250px; 
+    }
+    .info-item-1, .info-item-2 {
+        right: 15px; /* Acercar un poco más */
+        /* Podrías necesitar ajustar top también */
+    }
+}
+
+@media (max-width: 768px) {
+    .about-columns {
+        flex-direction: column; 
+        padding-top: 0; /* Ya no hay franja como antes */
+    }
+    .about-columns::before {
+        display: none; /* Ocultar franja en móvil */
+    }
+    .about-image-column {
+        margin-top: 0; 
+        order: 1;
+         padding-top: 0; /* Reiniciar padding si no es necesario */
+    }
+    .info-item.card-style {
+        position: static; /* Ya no flotan */
+        width: 90%; 
+        max-width: 320px; 
+        margin: 20px auto 0 auto; /* Centrar y espaciar */
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra más suave */
+    }
+    .about-text-column {
+        padding-left: 0;
+        margin-top: 30px;
+        order: 2;
+        text-align: center; /* Centrar texto en móvil */
+    }
+    .about-text-column h2 {
+        font-size: 2rem;
+        padding-top: 0; /* Sin franja */
+        color: #333; /* Color normal */
+        margin-bottom: 15px;
+    }
+    .about-text-column p {
+        text-align: center; /* O left si prefieres */
+         margin-bottom: 20px;
+    }
+    .btn-secondary-custom {
+        padding: 10px 20px;
+        font-size: 16px; /* Tamaño móvil */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* SECCIÓN CATEGORIAS                  */
+/* ---------------------------------------------------- */
+.categories-section {
+    padding: 60px 0; /* Espaciado vertical (¡AJUSTA!) */
+    background-color: #F5F5F5; /* O el fondo que tenga en Figma */
+}
+
+/* Contenedor (Asegúrate que .container tenga max-width y margin: auto) */
+/* Si no lo tienes definido globalmente: */
+.categories-section .container {
+    max-width: 1140px; /* ¡AJUSTA! */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Encabezado de Sección (Título y Ver Todas) */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px; /* Espacio antes del grid (¡AJUSTA!) */
+    border-bottom: 1px solid #eee; /* Opcional: línea divisoria */
+    padding-bottom: 15px; /* Espacio después de la línea */
+}
+
+.section-title h2 {
+    margin: 0 0 8px 0; /* Margen debajo del título antes de las líneas */
+    font-size: 2rem; /* ¡AJUSTA! */
+    color: #A67F41; /* ¡AJUSTA! */
+    /* font-family: 'TuFuenteTitulos', sans-serif; */ /* ¡AJUSTA! */
+}
+
+/* Contenedor para las 3 líneas debajo del título */
+.title-underline-container {
+    display: flex;
+}
+
+.title-underline {
+    width: 40px; /* Ancho de cada línea (¡AJUSTA!) */
+    height: 3px; /* Grosor de cada línea (¡AJUSTA!) */
+    background-color: #A67F41; /* Color café (¡AJUSTA!) */
+    margin-right: 5px; /* Espacio entre líneas */
+    border-radius: 1px; /* Bordes suaves opcional */
+}
+
+.view-all-link {
+    text-decoration: none;
+    color: #000000; /* ¡AJUSTA EL COLOR SI ES NECESARIO! */
+    font-weight: 540; /* ¡AJUSTA EL PESO SI ES NECESARIO! */
+    display: flex;
+    align-items: center;
+    /* --- AUMENTA ESTE VALOR PARA HACER EL TEXTO MÁS GRANDE --- */
+    font-size: 1.25rem; /* EJEMPLO: Antes era 0.9rem, prueba con 1rem, 1.1rem, 1.2rem, o px como 18px, 20px (¡AJUSTA!) */
+    transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+    color: #8c6b37; /* ¡AJUSTA! */
+}
+
+.arrow-icon {
+    /* --- AUMENTA ESTE VALOR PARA HACER LA FLECHA MÁS GRANDE --- */
+    width: 130px; /* EJEMPLO: Antes era 16px, prueba con 20px, 24px, etc. (¡AJUSTA!) */
+    height: auto; /* Mantiene la proporción si solo cambias el width */
+    margin-left: 30px; /* Podrías necesitar aumentar un poco el espacio si los elementos son más grandes (¡AJUSTA!) */
+}
+
+/* Grid de Categorías */
+.category-grid {
+    display: grid;
+    gap: 20px; /* ¡AJUSTA DESDE FIGMA! */
+    grid-template-columns: 590px 283px 283px; /* ¡AJUSTA ESTOS ANCHOS DESDE FIGMA! */
+    grid-template-rows: 284px 264px; /* ¡AJUSTA ESTAS ALTURAS DESDE FIGMA! */
+    justify-content: center;
+}
+
+/* Estilo general para los items del grid */
+.category-item {
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+}
+
+.category-link {
+    display: block;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    line-height: 0;
+    flex-grow: 1;       
+    overflow: hidden;
+}   
+
+.category-item img {
+    width: 100%;    
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+/* Colocación específica */
+.category-item-dept {
+    grid-column: 1 / 2; /* Ocupa la primera columna definida */
+    grid-row: 1 / 3;    /* Ocupa las dos filas definidas */
+}
+
+.category-item-casas {
+    grid-column: 2 / 4; /* Ocupa la SEGUNDA y TERCERA columna definida */
+    grid-row: 1 / 2;    /* Ocupa la primera fila definida */
+}
+
+.category-item-comercios {
+    grid-column: 2 / 3; /* Ocupa la SEGUNDA columna definida */
+    grid-row: 2 / 3;    /* Ocupa la segunda fila definida */
+}
+
+.category-item-countries {
+    grid-column: 3 / 4; /* Ocupa la TERCERA columna definida */
+    grid-row: 2 / 3;    /* Ocupa la segunda fila definida */
+}
+
+/* Banner "Lo Mas Buscado" */
+.most-wanted-banner {
+    position: absolute; 
+    bottom: 155px;  /* EJEMPLO: Prueba valores como 0, 5px, -5px (¡AJUSTA!) */
+    right: -10px;   /* EJEMPLO: Prueba valores como 0, 5px, -20px (¡AJUSTA!) */
+    background-color: #A67F41; /* ¡TU COLOR CAFÉ DE FIGMA! */
+    color: white;
+    padding: 10px 60px; /* EJEMPLO: (Vertical 8px, Horizontal 50px) ¡AJUSTA! */
+    font-size: 1em;   /* ¡AJUSTA! */
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap; 
+    line-height: 1.2;    
+    transform: rotate(-45deg); 
+    transform-origin: 100% 100%; /* Pivota desde su propia esquina inferior derecha. Esto es igual a 'bottom right' */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+    z-index: 5; /* Para asegurar que esté sobre la imagen */
+}
+
+/* Los nombres de categoría y el banner como los tenías */
+.category-name {
+    text-align: left;
+    padding: 0px 0px 0px 5px;
+    font-size: 1rem;   
+    font-weight: 600;  
+    color: #333333;    
+    line-height: 1.3;
+    background-color: #F5F5F5; 
+    flex-shrink: 0; 
+}
+
+/* Media Queries */
+@media (max-width: 1200px) { /* Ajusta este breakpoint basado en 590+283+283 + gaps */
+    .category-grid {
+        /* Pasar a 2 columnas flexibles, por ejemplo */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto; /* Se necesitarán más filas o un layout diferente */
+    }
+    /* Aquí necesitarás redefinir la ubicación de CADA .category-item-* para el layout de 2 columnas */
+    .category-item-dept { grid-column: 1 / 3; grid-row: 1 / 2; /* Depts ocupa todo el ancho arriba */ }
+    .category-item-casas { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .category-item-comercios { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .category-item-countries { grid-column: 1 / 3; grid-row: 3 / 4; /* Countries ocupa todo el ancho abajo */ }
+    /* ESTO ES SOLO UN EJEMPLO DE REORGANIZACIÓN PARA TABLET, AJUSTA A TU DISEÑO RESPONSIVO */
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr; /* Todo a una columna */
+    }
+    .category-item-dept,
+    .category-item-casas,
+    .category-item-comercios,
+    .category-item-countries {
+        grid-column: 1 / 2; /* Todos a la única columna */
+        grid-row: auto; /* Se apilan */
+        aspect-ratio: 4 / 3; /* O la proporción que quieras para móvil */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* SECCIÓN TESTIMONIOS                  */
+/* ---------------------------------------------------- */
+.testimonials-section {
+    padding: 60px 0; 
+    background-color: #ffffff; /* ¡AJUSTA! */
+    /* text-align: center; */ /* Comentamos o quitamos esto si el section-header ya no es hijo directo que necesite centrarse */
+}
+
+.testimonials-section .section-header, 
+.testimonials-specific-header { /* Usa la clase que estés aplicando en tu HTML */
+    display: flex;
+    justify-content: space-between; /* Mantenemos esto */
+    align-items: center;          /* Mantenemos esto */
+    margin-bottom: 30px;          /* O el margen que necesites antes de los filtros/tarjetas */
+}
+
+.testimonials-section .section-title-group {
+    text-align: center; /* Para que el título y subtítulo se alineen a la izquierda dentro de este grupo */
+    flex-grow: 1;  
+    padding-left: 250px;
+}
+
+.testimonials-section .section-main-title {
+    font-size: 2rem;   /* ¡AJUSTA! */
+    color: #A67F41;     /* ¡AJUSTA! */
+    margin: 0 0 8px 0;  /* Margen inferior para separar del subtítulo */
+    font-weight: 600;   /* ¡AJUSTA! */
+}
+
+.testimonials-section .section-subtitle {
+    font-size: 1.1rem;   /* ¡AJUSTA! */
+    color: #000000;     /* ¡AJUSTA! */
+    margin-bottom: 0;    /* El .section-header ya maneja el margen inferior general */
+    max-width: none;     /* No necesita max-width si está a la izquierda */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.testimonials-view-all-style {
+    color: #000000;
+}
+
+.testimonials-view-all-style .arrow-icon {
+    width: 130px; /* Asegúrate que este valor sea consistente con el de Categorías o el deseado */
+    height: auto;
+    margin-right: 40px;
+}
+
+.testimonial-cards-container {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* ¡AJUSTA el 320px! */
+    gap: 30px;
+    justify-content: center;
+    /* margin-top: 40px; */ /* Ya no es necesario si .section-header tiene buen margin-bottom */
+}
+
+.testimonial-card {
+    background-color: #ffffff; /* Fondo blanco de la tarjeta */
+    border-radius: 10px; /* ¡AJUSTA! */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave (¡AJUSTA!) */
+    padding: 30px 25px; /* Espaciado interno (¡AJUSTA!) */
+    text-align: left; /* Alineación del texto dentro de la tarjeta */
+    
+    display: flex; /* Para mejor control del contenido interno */
+    flex-direction: column; /* Apilar elementos internos verticalmente */
+    
+    /* Ancho de las tarjetas */
+    width: 100%; /* Por defecto, luego se ajusta con max-width o flex-basis */
+    max-width: 360px; /* Ancho máximo de una tarjeta (¡AJUSTA!) */
+    /* Si usas flexbox para el contenedor, puedes usar flex-basis en lugar de max-width */
+    /* flex-basis: calc(33.333% - 20px); */ /* Ejemplo para 3 tarjetas con gap de 30px (30*2/3 = 20) */
+}
+
+.testimonial-quote-icon {
+    margin-bottom: 15px; 
+    /* Opcional: posicionar el icono de comillas de forma absoluta */
+    /* position: absolute; top: 20px; left: 20px; opacity: 0.1; font-size: 4rem; color: #ccc; */
+}
+
+.testimonial-quote-icon img {
+    width: 35px; /* Tamaño del icono de comillas (¡AJUSTA!) */
+    height: auto;
+}
+
+.testimonial-text {
+    font-size: 1rem; /* ¡AJUSTA! */
+    line-height: 1.6; 
+    color: #000000; /* ¡AJUSTA! */
+    margin-bottom: 20px;
+    font-style: Arial; 
+    text-align: center;
+    flex-grow: 1; /* Hace que el texto ocupe el espacio, empujando al autor hacia abajo */
+}
+
+.testimonial-divider {
+    border: 1;
+    height: 1px;
+    background-color: #000000; /* Color de la línea (¡AJUSTA!) */
+    margin: 0 auto 20px auto; /* Margen arriba/abajo y centrada */
+    width: 80%; /* Ancho de la línea */
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Alinea este bloque al fondo de la tarjeta si la tarjeta es flex-column */
+}
+
+.author-image {
+    width: 50px; /* ¡AJUSTA! */
+    height: 50px; /* ¡AJUSTA! */
+    border-radius: 50%; /* Círculo perfecto */
+    margin-right: 15px;
+    object-fit: cover; 
+}
+
+.author-info p {
+    margin: 0;
+    line-height: 1.3;
+}
+
+.author-name {
+    font-weight: 600; /* ¡AJUSTA! */
+    color: #343a40; /* ¡AJUSTA! */
+    font-size: 1rem; /* ¡AJUSTA! */
+}
+
+.author-role {
+    font-size: 0.85rem; /* ¡AJUSTA! */
+    color: #6c757d; /* ¡AJUSTA! */
+}
+
+/* --- Media Queries para Testimonios --- */
+@media (max-width: 1200px) { /* Ajusta este breakpoint si es necesario */
+    .testimonial-card {
+        /* Para que quepan 2 por fila en pantallas medianas */
+        max-width: calc(50% - 15px); /* 15px es la mitad del gap de 30px */
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        /* Para que ocupen casi todo el ancho en móviles */
+        max-width: 90%;
+        /* Si tienes 'flex-basis' arriba, aquí podrías poner: */
+        /* flex-basis: 90%; */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* SECCIÓN CONTACTO CTA (CON IMAGEN EDIFICIOS)          */
+/* ---------------------------------------------------- */
+.contact-cta-section {
+    padding: 70px 0; /* Espacio arriba y abajo de la caja café */
+    background-color: #f5f5f5; /* O el color de fondo de tu página */
+    overflow: hidden; 
+}
+
+.contact-cta-section .contact-cta-container {
+    background-color: #A67F41; /* FONDO CAFÉ */
+    color: #ffffff;             /* TEXTO BLANCO */
+    padding: 50px 40px;         /* Padding INTERNO general (¡AJUSTA!) */
+    /* padding-bottom: 0; */   /* Si la imagen debe tocar el borde inferior exacto de la caja café, el padding inferior debe ser 0 o muy pequeño */
+    border-radius: 30px;        /* Bordes redondeados para la caja café */
+    display: flex;
+    align-items: stretch; /* CAMBIO: Para que ambas columnas intenten tener la misma altura */
+    gap: 30px;            /* Espacio entre columnas (¡AJUSTA!) */
+    flex-wrap: wrap;      /* Para móvil */
+    max-width: 900px;     /* ANCHO DE LA CAJA CAFÉ (¡AJUSTA!) */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /* overflow: hidden; */ /* Comenta esto temporalmente para ver si la imagen se posiciona bien abajo */
+}
+
+.contact-cta-text-content {
+    flex: 1;
+    min-width: 400px;
+    min-height: 200px;
+    text-align: center; /* O 'center' si el texto dentro de la columna izquierda debe estar centrado */
+    padding-right: 20px; /* Espacio antes de la columna de imagen (¡AJUSTA!) */
+    position: relative; /* Para asegurar que esté sobre el fondo café si hay z-index complejos */
+    z-index: 1;
+}
+
+.contact-cta-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-top: 0; /* Ajustar según alineación vertical deseada */
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.contact-cta-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+.btn-contact-cta-action {
+    display: inline-block; /* Para que no ocupe todo el ancho */
+    background-color: #ffffff;
+    color: #333333;
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* margin-right: auto; */ /* Si quieres que solo el botón se alinee a la izquierda de su bloque de texto */
+}
+
+.btn-contact-cta-action:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+/* Columna de la Imagen (IZQUIERDA en tu HTML actual) */
+.contact-cta-image-content {
+    flex: 1; /* O un flex-basis específico, ej: flex-basis: 40%; */
+    min-width: 280px; /* Para que no se encoja demasiado antes de envolver */
+    display: flex; /* Para usar align-items en la imagen si es necesario */
+    align-items: flex-end; /* ¡CLAVE! Pega la imagen al fondo de esta columna */
+}
+
+.contact-cta-image-content img {
+    max-width: 400px;    /* O un ancho fijo si es más pequeña, ej: max-width: 300px; */
+    height: auto;
+    display: block; 
+    margin-right: auto; 
+}
+
+
+/* Columna de Texto (DERECHA en tu HTML actual) */
+.contact-cta-text-content {
+    flex: 1; /* O un flex-basis específico, ej: flex-basis: 60%; */
+    min-width: 300px;
+    text-align: center; /* CAMBIO: Texto alineado a la izquierda como en image_c7ef3f.png */
+    padding-left: 20px; /* Espacio si la imagen está muy pegada (¡AJUSTA!) */
+    display: flex; /* Para centrar verticalmente el contenido de texto si es necesario */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el h2, p, y botón */
+    position: relative; 
+    z-index: 1;
+}
+
+/* --- Media Queries para la Sección Contacto CTA --- */
+@media (max-width: 768px) {
+    .contact-cta-section .contact-cta-container {
+        flex-direction: column; /* Imagen arriba, texto abajo (según orden HTML) */
+        align-items: center; /* Centra los bloques de columna */
+        text-align: center; /* Centra el texto dentro de los bloques */
+        padding: 40px 25px;
+    }
+    .contact-cta-text-content {
+        text-align: center; /* Asegura que el texto se centre en móvil */
+        padding-left: 0; /* Quitar padding extra */
+        order: 2; /* Texto y botón debajo de la imagen */
+        margin-top: 30px; /* Espacio después de la imagen */
+    }
+    .contact-cta-image-content {
+        text-align: center;
+        width: 100%; 
+        max-width: 300px; 
+        margin: 0 auto; /* Centrar y quitar margen inferior si va arriba */
+        order: 1; /* Imagen arriba */
+        align-self: center; /* Asegurar centrado de la columna de imagen */
+    }
+    .contact-cta-image-content img { /* Para centrar la imagen si tiene max-width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* ... (otros ajustes para título, subtítulo, botón en móvil que ya tenías) ... */
+    .contact-cta-title {
+        font-size: 2rem;
+    }
+    .contact-cta-subtitle {
+        font-size: 1rem;
+    }
+    .btn-contact-cta-action {
+        padding: 12px 25px;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* PIE DE PÁGINA (FOOTER) - ACTUALIZADO                 */
+/* ---------------------------------------------------- */
+.site-footer {
+    background-color: #26272b;  /* Un gris muy oscuro, casi negro (¡AJUSTA DESDE FIGMA!) */
+    color: #b2b2b2;             /* Texto claro general, un gris suave (¡AJUSTA!) */
+    padding: 70px 0 30px 0;     /* Padding: 70px arriba, 0 lados, 30px abajo (¡AJUSTA!) */
+    font-size: 0.95rem;         /* Tamaño de fuente base (¡AJUSTA!) */
+    line-height: 1.7;           /* Altura de línea para mejor legibilidad */
+    padding-left: 50px;  /* EJEMPLO: Antes podría ser 15px o 20px. ¡AJUSTA! */
+    padding-right: 50px; /* EJEMPLO: ¡AJUSTA! */
+    width: 100%; 
+}
+
+/* El .container ya debe estar definido globalmente para centrar y max-width */
+/* .site-footer .container { ... } */
+
+.footer-main-content {
+    display: flex;
+    flex-wrap: wrap;            /* Columnas se apilan en pantallas pequeñas */
+    justify-content: space-between; /* Distribuye el espacio entre las columnas */
+    gap: 30px;                  /* Espacio entre columnas cuando se envuelven o si hay espacio extra */
+    margin-bottom: 40px;        /* Espacio antes de la barra de copyright */
+}
+
+.footer-column {
+    flex: 1;                    /* Las columnas intentan ocupar el mismo espacio */
+    min-width: 260px;           /* Ancho mínimo para cada columna (¡AJUSTA!) */
+    text-align: center;
+    margin-bottom: 20px;        /* Espacio si las columnas se apilan */
+}
+
+.footer-logo {
+    max-width: 100%;           /* Tamaño del logo (¡AJUSTA!) */
+    margin-bottom: 20px;
+}
+
+.footer-about p {
+    margin-top: 0;
+    font-size: 0.9rem; /* Texto descriptivo un poco más pequeño */
+}
+
+.footer-column h4 {
+    color: #ffffff;             /* Títulos de columna en blanco */
+    font-size: 1.15rem;         /* Tamaño (¡AJUSTA!) */
+    margin-top: 0;
+    margin-bottom: 25px;        /* Espacio debajo del título de columna */
+    font-weight: 600;           /* Un poco más de peso (¡AJUSTA!) */
+    text-transform: uppercase;  /* Opcional: Títulos en mayúsculas */
+    letter-spacing: 0.5px;      /* Opcional: Ligero espaciado */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px; /* Espacio entre ítems de lista */
+}
+
+.footer-column ul a {
+    color: #b2b2b2;             /* Mismo color que el texto general del footer */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul a:hover {
+    color: #ffffff;             /* Blanco al pasar el mouse */
+    /* text-decoration: underline; */ /* Opcional */
+}
+
+/* Estilos para la lista de contacto con iconos */
+.footer-contact-info li {
+    display: flex;
+    align-items: flex-start; /* Alinea el icono con la primera línea de texto si el texto es largo */
+    margin-bottom: 15px; /* Un poco más de espacio para la info de contacto */
+}
+
+.footer-icon, /* Clase común para todos los iconos del footer si usas <i> */
+.footer-contact-info li i { /* Si usas Font Awesome directamente */
+    margin-right: 12px;
+    margin-top: 5px;            /* Ajuste vertical fino del icono */
+    width: 20px;                /* Ancho para el espacio del icono */
+    text-align: center;         /* Centra el icono si es de fuente */
+    color: #A67F41;             /* Color de acento café/dorado para los iconos (¡AJUSTA!) */
+    font-size: 1rem;            /* Tamaño del icono si es de fuente */
+}
+
+/* Barra inferior del footer (copyright) */
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;           /* Si .footer-main-content no tiene suficiente margen */
+    border-top: 1px solid #404040; /* Línea divisoria sutil (¡AJUSTA COLOR!) */
+    font-size: 0.875rem;
+    color: #808080;             /* Color del texto de copyright (¡AJUSTA!) */
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* --- Media Queries para el Footer --- */
+/* Para tablets y pantallas medianas, las 3 columnas podrían caber bien */
+/* Si no, se apilarán gracias a flex-wrap y min-width en .footer-column */
+
+@media (max-width: 768px) { /* Para móviles */
+    .footer-main-content {
+        flex-direction: column; /* Apila las columnas */
+        align-items: center;    /* Centra las columnas apiladas */
+    }
+    .footer-column {
+        min-width: 100%;        /* Cada columna ocupa todo el ancho */
+        text-align: center;     /* Centra el texto dentro de las columnas apiladas */
+        margin-bottom: 30px;
+    }
+    .footer-logo {
+        margin-left: auto;      /* Centra el logo */
+        margin-right: auto;
+    }
+    .footer-contact-info li {
+        justify-content: center;/* Centra icono y texto */
+        padding-left: 0;        /* Quita padding si no hay icono a la izquierda */
+        padding-right: 0;
+    }
+    .footer-contact-info li i,
+    .footer-contact-info li .footer-icon {
+        margin-top: 3px; /* Ajuste para móvil */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* PÁGINA MISIÓN, VISIÓN Y OBJETIVOS (MVO)              */
+/* ---------------------------------------------------- */
+
+.page-container.mvo-page { /* Contenedor principal de la página MVO */
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* Estilo para CADA sección (Misión, Visión, Objetivos) */
+.mvo-section {
+    position: relative;     /* Necesario para el posicionamiento del .mvo-title-block */
+    padding-top: 30px;      /* Espacio arriba para acomodar el .mvo-title-block que se superpone. ¡AJUSTA! */
+    margin-bottom: 50px;    /* Espacio DESPUÉS de la línea de borde inferior, antes de la siguiente sección */
+    padding-bottom: 50px;   /* Espacio DENTRO de la sección, ANTES de la línea de borde inferior */
+    border-bottom: 5px solid #000000; /* LÍNEA LARGA DIVISORIA (¡AJUSTA COLOR/GROSOR!) */
+}
+
+.mvo-section:last-child {   /* Para que la última sección ("Objetivos") no tenga línea abajo ni margen extra */
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Bloque de color para los títulos "Misión", "Visión", "Objetivos" */
+.mvo-title-block {
+    background-color: #A67F41; /* Tu color café/dorado (¡AJUSTA!) */
+    color: #ffffff;             /* Texto del título en blanco */
+    padding: 12px 28px;         /* Padding interno del bloque (¡AJUSTA!) */
+    border-radius: 0px 0px 15px ; /* Esquinas inferiores redondeadas (¡AJUSTA!) */
+    display: inline-block;
+    width: 350px;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+    position: relative;         /* Para moverlo ligeramente */
+    left: 0px;  /* Si quieres que esté alineado a la izquierda del texto que sigue. ¡AJUSTA! */
+                /* Si el .mvo-section tuviera text-align:center, podrías usar left:50%; transform:translateX(-50%); para centrar el bloque */
+    top: -10px; /* "Sube" el bloque para que se superponga un poco con el padding-top de .mvo-section. ¡AJUSTA! */
+    z-index: 1;                 /* Para que esté sobre el texto si hay solapamiento */
+    margin-bottom: 0;           /* El espaciado lo maneja el .mvo-main-text */
+}
+
+/* Título (H2: "Misión", "Visión", "Objetivos") DENTRO del bloque de color */
+.mvo-title-in-block {
+    font-size: 2.2rem;          /* Tamaño del texto (¡AJUSTA!) */
+    font-weight: 500;           /* Peso (¡AJUSTA!) */
+    margin: 0;                  /* Sin márgenes */
+    line-height: 1.2;           /* Altura de línea (¡AJUSTA!) */
+    color: inherit;             /* Hereda color blanco del padre .mvo-title-block */
+}
+
+/* Texto principal de cada sección (Misión, Visión, Objetivos) */
+.mvo-main-text {
+    font-size: 1.7rem;          /* Tamaño del texto (¡AJUSTA!) */
+    color: #000000;             /* Color del texto (¡AJUSTA!) */
+    line-height: 1.8;
+    text-align: center;         /* Texto principal centrado */
+    padding: 45px 50px 0 50px;  /* Padding: Arriba (para dejar espacio al bloque título), Lados, Abajo(0) (¡AJUSTA!) */
+    margin-top: -20px;          /* "Sube" el texto para que se meta un poco debajo del bloque título (¡AJUSTA!) */
+    position: relative;
+    z-index: 0;                 /* Detrás del bloque de título */
+    background-color: #ffffff;  /* Opcional: Si necesitas un fondo para el texto diferente al de .mvo-section */
+    border-radius: 8px;         /* Opcional: Si el texto tiene un "contenedor" visual */
+}
+
+/* Para la lista de objetivos (ya hereda estilos de .mvo-main-text si ambas clases están en el <ul>) */
+.mvo-section-list {
+    text-align: left;           /* Las listas se ven mejor alineadas a la izquierda */
+    padding-left: 60px;         /* Mayor indentación para la lista si el texto está centrado (¡AJUSTA!) */
+                                /* El padding superior viene de .mvo-main-text */
+}
+
+.mvo-section-list li {
+    margin-bottom: 10px;        /* Espacio entre cada objetivo */
+}
+
+/* --- Media Queries para la página MVO --- */
+@media (max-width: 768px) {
+    .mvo-page .page-main-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .mvo-section {
+        padding-top: 20px; /* Ajustar espacio para el bloque de título */
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+    }
+
+    .mvo-title-block {
+        /* left: 20px; */ /* Descomenta y ajusta si quieres moverlo en móvil */
+        top: -10px;     /* Ajusta la superposición en móvil */
+        padding: 10px 20px;
+        /* width: auto; */ /* Dejar que se ajuste al texto */
+    }
+
+    .mvo-title-in-block {
+        font-size: 1.8rem; /* Títulos de bloque más pequeños */
+    }
+
+    .mvo-main-text {
+        padding: 35px 15px 0 15px; /* Ajustar padding del texto principal */
+        margin-top: -20px;      /* Ajustar superposición */
+        font-size: 0.95rem;
+    }
+    .mvo-section-list {
+        padding-left: 30px; /* Menos indentación */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* PÁGINA CATEGORIAS                                    */
+/* ---------------------------------------------------- */
+
+/* Contenedor general para páginas internas como Categorias, MVO, etc. */
+.page-container {
+    padding-top: 50px;    /* Espacio arriba del título de la página (¡AJUSTA!) */
+    padding-bottom: 70px; /* Espacio abajo después del contenido (¡AJUSTA!) */
+    
+    /* --- COLOR DE FONDO PARA EL ÁREA DE CONTENIDO DE LA PÁGINA --- */
+    background-color: #f5f5f5; /* EJEMPLO: Un gris muy claro. ¡CAMBIA ESTE COLOR POR EL QUE QUIERAS DE TU FIGMA! */
+    
+    color: #333333;       /* Color de TEXTO por defecto para la página (oscuro para fondo claro) */
+
+}
+
+.categories-page-container .section-header {
+    margin-bottom: 40px; /* Ajustado para más espacio antes del grid */
+    /* Los demás estilos para .section-header (flex, justify-content, etc.) deberían ser globales o heredados */
+}
+
+/* Título H1 "Categorias" en la página de Categorías */
+.categories-page-container h1 { 
+    font-size: 2.5rem;   /* ¡AJUSTA! */
+    color: #A67F41;      /* Color café para el título (¡AJUSTA!) */
+    margin-bottom: 30px; /* Espacio debajo del título (¡AJUSTA!) */
+    font-weight: 500;    /* Era 500, 600 es más común para títulos. ¡AJUSTA! */
+    text-align: left;    /* Alineado a la izquierda */
+    margin-left: 100px;  /* CORREGIDO: Quitado el margen de 100px para alineación estándar. ¡AJUSTA si realmente lo quieres indentado! */
+    /* position: relative; */ /* Ya no es necesario si no hay línea ::after */
+    /* padding-bottom: 1px; */  /* Ya no es necesario */
+}
+
+/* Ejemplo: .view-all-link y .category-name */
+.view-all-link {
+    /* ... */
+    color: #333; /* Asegurar contraste con fondo claro de página */
+    /* ... */
+}
+.category-name {
+    /* ... */
+    color: #333333; /* Asegurar contraste */
+    background-color: #F5F5F5; /* Este fondo podría necesitar ser transparente o igual al nuevo fondo de página */
+                               /* o un blanco para destacar sobre el nuevo fondo de página. */
+    /* background-color: transparent; */ /* Opción */
+    /* background-color: #ffffff; */   /* Opción */
+}
+

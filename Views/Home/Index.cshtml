@@ -1,0 +1,196 @@
+﻿@* --- HERO SECTION --- *@
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Encuentra tu lugar ideal</h1>
+    </div>
+</section> @* CIERRE DE LA HERO SECTION *@
+
+@* ----- INICIO: SECCIÓN QUIÉNES SOMOS (ESTRUCTURA CORREGIDA) ----- *@
+<section class="about-us-section">
+    <div class="container"> 
+        <div class="about-columns"> @* Inicio Contenedor Flex para las dos columnas *@
+
+            @* Columna Izquierda (Imagen + Tarjetas Info) *@
+            <div class="about-image-column">
+                <img src="~/images/edificio-quienes-somos.jpg" alt="Edificio Maka House" class="about-building-image">
+                
+                <div class="info-item card-style info-item-1"> 
+                    <img src="~/images/icono-equipo.png" alt="Icono Equipo">
+                    <p>Equipo formado por expertos en ventas</p>
+                </div>
+                <div class="info-item card-style info-item-2"> 
+                    <img src="~/images/icono-experiencia.png" alt="Icono Experiencia">
+                    <p>Mas de 10 años de experiencia en el rubro</p>
+                </div>
+            </div> @* Fin Columna Izquierda *@
+
+            @* Columna Derecha (Texto + Botón) *@
+            <div class="about-text-column">
+                <h2>¿Quiénes somos?</h2>
+                <p>
+                    Maka House es una empresa dedicada a prestar servicios inmobiliarios en la ciudad de Querétaro, 
+                    brindamos un servicio personalizado y de calidad para ayudarte con tu búsqueda inmobiliaria.
+                </p>
+                <div class="button-wrapper-center">
+                    <a asp-controller="Home" asp-action="MisionVisionObjetivos" class="btn btn-secondary-custom">Misión, Visión y Objetivos</a>
+                </div>
+            </div> @* Fin Columna Derecha *@
+
+        </div> @* Fin Contenedor Flex (.about-columns) *@
+    </div> @* Fin Contenedor (.container) *@
+</section>
+@* ----- FIN: SECCIÓN QUIÉNES SOMOS ----- *@
+
+@* ----- INICIO: SECCIÓN CATEGORIAS ----- *@
+<section class="categories-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <h2>Categorias</h2>
+                @* Puedes usar un div o manejar las 3 líneas con CSS ::after en el h2 si prefieres *@
+                <div class="title-underline-container">
+                    <div class="title-underline"></div>
+                    <div class="title-underline"></div>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            <a asp-controller="Home" asp-action="Categorias" class="view-all-link">
+                Ver Todas
+                @* Para el icono puedes usar una librería como Font Awesome o una imagen *@
+                <img src="~/images/icono-flecha-derecha.png" alt="Ver Todas" class="arrow-icon">
+                @* Ejemplo con Font Awesome (requiere instalarlo): <i class="fas fa-arrow-right"></i> *@
+            </a>
+        </div>
+
+            <div class="category-grid">
+                @* Item 1: Departamentos (Este se ve bien en tu captura) *@
+                <div class="category-item category-item-dept">
+                    <a href="#" class="category-link">
+                        <img src="~/images/cat-departamentos.jpg" alt="Departamentos">
+                        <span class="most-wanted-banner">Lo Mas Buscado</span>
+                    </a>
+                    <p class="category-name">Departamentos</p>
+                </div>
+
+                @* Item 2: Casas (Verifica este bloque) *@
+                <div class="category-item category-item-casas">
+                    <a href="#" class="category-link">
+                        <img src="~/images/cat-casas.jpg" alt="Casas"> @* ¿Es este el nombre correcto de tu imagen? *@
+                    </a>
+                    <p class="category-name">Casas</p>
+                </div>
+
+                @* Item 3: Comercios (Verifica este bloque) *@
+                <div class="category-item category-item-comercios">
+                    <a href="#" class="category-link">
+                        <img src="~/images/cat-comercios.jpg" alt="Comercios"> @* ¿Es este el nombre correcto de tu imagen? *@
+                    </a>
+                    <p class="category-name">Comercios</p>
+                </div>
+
+                @* Item 4: Countries (Verifica este bloque) *@
+                <div class="category-item category-item-countries">
+                    <a href="#" class="category-link">
+                        <img src="~/images/cat-countries.jpg" alt="Countries"> @* ¿Es este el nombre correcto de tu imagen? *@
+                    </a>
+                    <p class="category-name">Countries</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+@* ----- FIN: SECCIÓN CATEGORIAS ----- *@
+
+@* ----- INICIO: SECCIÓN TESTIMONIOS ----- *@
+<section class="testimonials-section">
+    <div class="container">
+        
+        <div class="section-header"> 
+            <div class="section-title-group"> 
+                <h2 class="section-main-title">Testimonios</h2>
+                <p class="section-subtitle">Lo que nuestros clientes dicen</p>
+            </div>
+            <a href="#" class="view-all-link testimonials-view-all-style"> Ver Más
+                <img src="~/images/icono-flecha-derecha.png" alt="Ver Todas" class="arrow-icon">
+            </a>
+        </div>
+
+        <div class="testimonial-cards-container">
+
+            @* --- Tarjeta de Testimonio 1 --- *@
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <img src="~/images/icono-comillas.png" alt="Icono de comillas"> @* Asegúrate de tener esta imagen en wwwroot/images *@
+                </div>
+                <p class="testimonial-text">
+                    "Estamos increíblemente contentos con nuestra nueva casa. El equipo de Maka House fue profesional, atento y nos guio en cada paso. ¡Superaron nuestras expectativas! Definitivamente los recomendamos."
+                </p>
+                <hr class="testimonial-divider">
+                <div class="testimonial-author">
+                    <img src="~/images/cliente1.jpg" alt="Familia Torres" class="author-image"> @* Imagen del cliente 1 *@
+                    <div class="author-info">
+                        <p class="author-name">Familia Torres</p>
+                        <p class="author-role">Compradores Satisfechos, Zibatá</p>
+                    </div>
+                </div>
+            </div>
+
+            @* --- Tarjeta de Testimonio 2 --- *@
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <img src="~/images/icono-comillas.png" alt="Icono de comillas">
+                </div>
+                <p class="testimonial-text">
+                    "Vender mi propiedad fue un proceso sin estrés gracias a Maka House. Su conocimiento del mercado y estrategia de marketing fueron clave. ¡Resultados rápidos y eficientes!"
+                </p>
+                <hr class="testimonial-divider">
+                <div class="testimonial-author">
+                    <img src="~/images/cliente2.jpg" alt="Ricardo Jiménez" class="author-image"> @* Imagen del cliente 2 *@
+                    <div class="author-info">
+                        <p class="author-name">Ricardo Jiménez</p>
+                        <p class="author-role">Vendedor Exitoso, El Refugio</p>
+                    </div>
+                </div>
+            </div>
+
+            @* --- Tarjeta de Testimonio 3 --- *@
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon">
+                    <img src="~/images/icono-comillas.png" alt="Icono de comillas">
+                </div>
+                <p class="testimonial-text">
+                    "Como inversionista, valoro la transparencia y el buen consejo. Maka House me ofreció exactamente eso, ayudándome a tomar la mejor decisión para mi portafolio. ¡Gran equipo!"
+                </p>
+                <hr class="testimonial-divider">
+                <div class="testimonial-author">
+                    <img src="~/images/cliente3.jpg" alt="Sofía Contreras" class="author-image"> @* Imagen del cliente 3 *@
+                    <div class="author-info">
+                        <p class="author-name">Sofía Contreras</p>
+                        <p class="author-role">Inversionista</p>
+                    </div>
+                </div>
+            </div>
+            @* Puedes copiar y pegar el bloque <div class="testimonial-card">...</div> para añadir más testimonios *@
+
+        </div> @* Fin de testimonial-cards-container *@
+    </div> @* Fin de container *@
+</section>
+@* ----- FIN: SECCIÓN TESTIMONIOS ----- *@
+
+@* ----- INICIO: SECCIÓN CONTACTO CTA (CON IMAGEN EDIFICIOS) ----- *@
+<section class="contact-cta-section">
+    @* Este es el div que ahora tendrá el fondo café y estará centrado *@
+    <div class="container contact-cta-container"> 
+        <div class="contact-cta-image-content">
+            <img src="~/images/edificios-contacto.png" alt="Edificios decorativos">
+        </div>
+        <div class="contact-cta-text-content">
+            <h2 class="contact-cta-title">Contáctanos</h2>
+            <p class="contact-cta-subtitle">Sabemos lo que necesitas</p>
+            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a>
+        </div>
+    </div>
+</section>
+@* ----- FIN: SECCIÓN CONTACTO CTA ----- *@
+

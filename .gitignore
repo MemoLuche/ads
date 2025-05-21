@@ -1,0 +1,36 @@
+# IDE specific files
+.idea/
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages folder - typically not versioned, restored on build
+packages/
+*.nupkg
+
+# Dotnet local tools
+.config/dotnet-tools.json
+
+# Rider specific
+.ideaRider/
+
+# User-specific files from OS
+.DS_Store
+Thumbs.db
+
+# Files often containing secrets or local settings
+# Consider if appsettings.Development.json has secrets.
+# If so, it should be ignored and secrets managed via User Secrets or environment variables.
+# For now, we'll assume it's okay or you'll manage secrets separately.
+# If you have local database files like .db that are part of the template but not actual data,
+# you might ignore them. Your SQLite DB (datos_aplicacion.db or miaplicacion.db)
+# if it's meant to be part of the initial repo (e.g. empty structure), keep it.
+# If it contains sensitive data or grows large, consider ignoring it and generating it on run.
+# Ejemplo:
+# *.db
+# !nombre_especifico_de_tu_plantilla_db.db

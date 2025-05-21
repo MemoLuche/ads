@@ -1,0 +1,58 @@
+@{
+    // ViewData["Title"] ya fue establecido en la acción del controlador.
+    // Si quieres un título específico para el <h1> que sea diferente al de la pestaña, defínelo aquí:
+    // ViewData["PageHeading"] = "Nuestra Esencia";
+}
+
+<div class="container page-container mvo-page">
+
+    @* --- SECCIÓN MISIÓN --- *@
+    <section class="mvo-section"> 
+        <div class="mvo-title-block"> @* Clase común para el bloque de título *@
+            <h2 class="mvo-title-in-block">Misión</h2> @* Clase común para el título en bloque *@
+        </div>
+        <p class="mvo-main-text"> @* Clase común para el texto principal *@
+            Somos una empresa disruptiva en el mercado inmobiliario que se preocupa por los detalles y generar experiencias con nuestros clientes.
+        </p>
+    </section>
+
+    @* --- SECCIÓN VISIÓN --- *@
+    <section class="mvo-section">
+        <div class="mvo-title-block"> @* Reutilizamos clase *@
+            <h2 class="mvo-title-in-block">Visión</h2> @* Reutilizamos clase *@
+        </div>
+        <p class="mvo-main-text"> @* Reutilizamos clase *@
+            "Llegar a ser una empresa reconocida por su constante innovación en el mercado inmobiliario".
+        </p>
+    </section>
+
+    @* --- SECCIÓN OBJETIVOS --- *@
+    <section class="mvo-section">
+        <div class="mvo-title-block"> @* Reutilizamos clase *@
+            <h2 class="mvo-title-in-block">Objetivos</h2> @* Reutilizamos clase *@
+        </div>
+        <ul class="mvo-section-list mvo-main-text"> @* Reutilizamos mvo-main-text para el espaciado, y mvo-section-list para estilos de lista *@
+            <li>Brindar un servicio personalizado y de calidad a cada cliente, asegurando que su experiencia de búsqueda y adquisición inmobiliaria sea eficiente y satisfactoria.</li>
+            <li>Innovar constantemente en el mercado inmobiliario, implementando nuevas tecnologías y estrategias.</li>
+            <li>Posicionarnos como referentes en el sector inmobiliario de Querétaro, siendo reconocidos por nuestra transparencia, profesionalismo y calidad de servicio.</li>
+            <li>Optimizar el uso de plataformas digitales y herramientas tecnológicas para facilitar la búsqueda y gestión de inmuebles, ofreciendo soluciones prácticas y accesibles a nuestros clientes.</li>
+        </ul>
+    </section>
+    
+</div>
+
+@* ----- INICIO: SECCIÓN CONTACTO CTA (CON IMAGEN EDIFICIOS) ----- *@
+<section class="contact-cta-section" >
+    @* Este es el div que ahora tendrá el fondo café y estará centrado *@
+    <div class="container contact-cta-container"> 
+        <div class="contact-cta-image-content">
+            <img src="~/images/edificios-contacto.png" alt="Edificios decorativos">
+        </div>
+        <div class="contact-cta-text-content">
+            <h2 class="contact-cta-title">Contáctanos</h2>
+            <p class="contact-cta-subtitle">Sabemos lo que necesitas</p>
+            <a href="#" class="btn btn-contact-cta-action">Enviar Mensaje</a>
+        </div>
+    </div>
+</section>
+@* ----- FIN: SECCIÓN CONTACTO CTA ----- *@

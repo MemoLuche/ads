@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/miestilo.css" asp-append-version="true" /> @* Tu CSS personalizado *@
+</head>
+<body>
+    <div class="top-bar">
+        @* Barra superior oscura, puede estar vacía *@
+    </div>
+
+    <header class="main-header">
+        <div class="container-header">
+            <div class="logo">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo-maka-house.png" alt="Maka House Logo">
+                </a>
+            </div>
+
+            @* ----- ¡ASEGÚRATE DE QUE ESTE DIV EXISTA Y ENVUELVA LO SIGUIENTE! ----- *@
+            <div class="nav-button-group">
+
+                <nav class="main-nav">
+                     <ul>
+                        <li><a href="#">Compra, Venta y Alquiler</a></li>
+                        <li><a href="#">Nuestros Asesores</a></li>
+                     </ul>
+                </nav>
+
+                 <div class="header-contact-button">
+                    <a href="#" class="btn btn-contact">Contacto</a>
+                </div>
+
+            </div> @* ----- CIERRE DEL DIV nav-button-group ----- *@
+
+        </div>
+    </header>
+
+    <div>
+        @* No usamos la clase "container" aquí para permitir secciones de ancho completo si es necesario *@
+        <main role="main">
+            @RenderBody() @* Contenido específico de la página *@
+        </main>
+    </div>
+
+    @* ----- INICIO: TU NUEVO PIE DE PÁGINA DETALLADO VA AQUÍ ----- *@
+    <footer class="site-footer"> @* Usamos la clase .site-footer que definimos en el CSS *@
+        <div class="container">
+            <div class="footer-main-content">
+
+                @* Columna 1: Logo y Texto Descriptivo *@
+                <div class="footer-column footer-about">
+                    <img src="~/images/logo-blanco-maka-house.png" alt="Maka House" class="footer-logo">
+                    <p>
+                        Somos una agencia inmobiliaria comprometida con ofrecerte las mejores propiedades y 
+                        un servicio excepcional para ayudarte a encontrar el hogar de tus sueños o la inversión perfecta.
+                    </p>
+                </div>
+
+                @* Columna 2: Enlaces de Navegación *@
+                <div class="footer-column footer-navigation">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                        <li><a asp-controller="Home" asp-action="Categorias">Propiedades</a></li> @* Ajusta estos enlaces *@
+                        <li><a asp-controller="Home" asp-action="MisionVisionObjetivos">Nosotros</a></li>
+                        <li><a asp-controller="Home">Testimonios</a></li>
+                        <li><a asp-controller="Home" >Contacto</a></li>
+                    </ul>
+                </div>
+
+                @* Columna 3: Información de Contacto *@
+                <div class="footer-column footer-contact-info">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt footer-icon"></i> @* Icono de ubicación *@
+                            <span>Av. Ejemplo 123, Col. Centro, Querétaro, Qro. México</span> @* Tu dirección *@
+                        </li>
+                        <li>
+                            <i class="fas fa-phone footer-icon"></i> @* Icono de teléfono *@
+                            <span>+52 (442) 123 4567</span> @* Tu teléfono *@
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope footer-icon"></i> @* Icono de email *@
+                            <span>contacto@makahouse.com</span> @* Tu email *@
+                        </li>
+                    </ul>
+                </div>
+
+            </div> @* Fin de .footer-main-content *@
+
+            <div class="footer-bottom">
+                <p>&copy; @DateTime.Now.Year Maka House - Todos los derechos reservados.</p>
+            </div>
+
+        </div> @* Fin de .container *@
+    </footer>
+    @* ----- FIN DE TU NUEVO PIE DE PÁGINA ----- *@
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
