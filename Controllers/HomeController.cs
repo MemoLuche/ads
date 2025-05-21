@@ -145,5 +145,25 @@ namespace MiProyectoPortable.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+         // GET: /Home/Contacto
+        [HttpGet]
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        // POST: /Home/Contacto
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Contacto(ContactViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            // TODO: aquí podrías guardar en BD, enviar email, etc.
+            ViewBag.Message = "¡Gracias por contactarnos! En breve te responderemos.";
+            return View();
+        }
     }
 }

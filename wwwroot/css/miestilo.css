@@ -351,6 +351,132 @@ body {
 }
 
 /* ---------------------------------------------------- */
+/* SECCIÓN CONTACTO                                      */
+/* ---------------------------------------------------- */
+.contacto-page {
+    background: #f5f5f5;
+    padding: 2rem 1rem;
+    max-width: 1200px;   /* Ancho máximo para centrar y limitar tamaño */
+    margin: 0 auto;      /* Centrar sección en la pantalla */
+}
+
+.contacto-header h1 {
+    font-size: 2.5rem;
+    color: #b08b4f;
+    border-bottom: 4px solid #b08b4f;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.contacto-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start; /* Alinea la parte superior de ambos bloques */
+    flex-wrap: wrap;         /* En móviles, las columnas caen debajo */
+}
+
+.contacto-image {
+    position: relative;
+    flex: 1 1 48%;           /* Ocupa ~48% del ancho, con flexibilidad */
+    box-sizing: border-box;
+}
+
+.contacto-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;       /* No crecerá más allá de 500px de alto */
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+
+.contacto-map-pin .material-icons {
+    margin-right: 0.5rem;
+}
+
+.contacto-form {
+    background: #333;
+    color: #ddd;
+    padding: 2rem;
+    border-radius: 8px;
+    flex: 1 1 48%;           /* Ocupa ~48% del ancho, con flexibilidad */
+    box-sizing: border-box;
+}
+
+.contacto-form h2 {
+    color: #b08b4f;
+    margin-bottom: 1.5rem;
+}
+
+.contacto-form .row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contacto-form .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.contacto-form .row-full {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.contacto-form label {
+    margin-bottom: 0.5rem;
+    color: #ddd;
+}
+
+.form-control {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn-contact {
+    background: #b08b4f;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.btn-contact:hover {
+    background: #a1793a;
+}
+
+.text-error {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    background: #276738;
+    color: #d4edda;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------- */
+/* AJUSTES RESPONSIVE PARA CONTACTO                     */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    .contacto-image,
+    .contacto-form {
+        flex: 1 1 100%;      /* En móvil, ocupan 100% y caen uno debajo de otro */
+    }
+}
+
+
+/* ---------------------------------------------------- */
 /* SECCIÓN CATEGORIAS                  */
 /* ---------------------------------------------------- */
 .categories-section {
@@ -1508,3 +1634,4 @@ body {
         margin-bottom: 30px; /* Espacio si se apila encima */
     }
 }
+

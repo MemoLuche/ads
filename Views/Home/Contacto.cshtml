@@ -1,0 +1,61 @@
+@model MiProyectoPortable.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Contacto";
+    Layout = "_Layout";
+}
+
+<section class="contacto-page">
+    <div class="contacto-header">
+        <h1>Contacto</h1>
+    </div>
+    <div class="contacto-content">
+        <div class="contacto-image">
+            <!-- Ruta corregida a casa_contacto.jpg -->
+            <img src="~/images/casa_contacto.jpg" alt="Casa de contacto" />
+        </div>
+        <div class="contacto-form">
+            <h2>Estás a un paso de nosotros...</h2>
+            @if(ViewBag.Message != null)
+            {
+                <div class="alert-success">@ViewBag.Message</div>
+            }
+            <form asp-action="Contacto" method="post">
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col">
+                        <label>Nombre</label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Introduce tu nombre" />
+                        <span asp-validation-for="Nombre" class="text-error"></span>
+                    </div>
+                    <div class="col">
+                        <label>Apellido</label>
+                        <input asp-for="Apellido" class="form-control" placeholder="Introduce tu Apellido" />
+                        <span asp-validation-for="Apellido" class="text-error"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Teléfono</label>
+                        <input asp-for="Telefono" class="form-control" placeholder="Introduce tu Teléfono" />
+                        <span asp-validation-for="Telefono" class="text-error"></span>
+                    </div>
+                    <div class="col">
+                        <label>Correo</label>
+                        <input asp-for="Correo" class="form-control" placeholder="Introduce tu Correo" />
+                        <span asp-validation-for="Correo" class="text-error"></span>
+                    </div>
+                </div>
+                <div class="row-full">
+                    <label>Mensaje</label>
+                    <textarea asp-for="Mensaje" class="form-control" rows="5" placeholder="Introduce tu Mensaje"></textarea>
+                    <span asp-validation-for="Mensaje" class="text-error"></span>
+                </div>
+                <button type="submit" class="btn-contact">Contactar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
