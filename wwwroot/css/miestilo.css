@@ -475,6 +475,135 @@ body {
     }
 }
 
+/* ---------------------------------------------------- */
+/* SECCIÓN ASESORES                                     */
+/* ---------------------------------------------------- */
+.asesores-page {
+    background: #ffffff;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título con subrayado café */
+.asesores-page .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.asesores-page h1 {
+    font-size: 2.5rem;
+    color: #b08b4f;
+    margin: 0;
+}
+.title-underline-container {
+    display: flex;
+}
+.title-underline {
+    width: 40px;
+    height: 4px;
+    background: #b08b4f;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+/* Cards de asesores */
+.asesores-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.asesor-card {
+    background: #333;
+    color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(33% - 1.33rem);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.asesor-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.asesor-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.asesor-role {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0 0 .5rem 0;
+}
+.asesor-name {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+}
+.btn-contact-small {
+    background: #b08b4f;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    font-size: .9rem;
+    transition: background .2s;
+}
+.btn-contact-small:hover {
+    background: #a1793a;
+}
+
+/* Sección de features numerados */
+.asesores-features {
+    background: #b08b4f;
+    padding: 3rem 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.feature-item {
+    background: transparent;
+    color: #fff;
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.feature-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.feature-item p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .asesor-card { width: calc(50% - 1rem); }
+    .feature-item { flex: 1 1 45%; }
+}
+@media (max-width: 768px) {
+    .asesores-cards, .asesores-features {
+        flex-direction: column;
+    }
+    .asesor-card { width: 100%; }
+    .feature-item { flex: 1 1 100%; }
+}
+
 
 /* ---------------------------------------------------- */
 /* SECCIÓN CATEGORIAS                  */

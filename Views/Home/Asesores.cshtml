@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Nuestros Asesores";
+    Layout = "_Layout";
+}
+
+<section class="asesores-page">
+    <div class="section-header">
+        <h1>Asesores</h1>
+        <div class="title-underline-container">
+            <span class="title-underline"></span>
+            <span class="title-underline"></span>
+            <span class="title-underline"></span>
+        </div>
+    </div>
+
+    <div class="asesores-cards">
+        <div class="asesor-card">
+            <img src="~/images/asesor_emi.jpg" alt="José Emilio Sánchez Miñón">
+            <div class="asesor-info">
+                <p class="asesor-role">Contador Inmobiliario</p>
+                <p class="asesor-name">José Emilio Sánchez Miñón</p>
+                <a asp-action="Contacto" class="btn-contact-small">Contactar</a>
+            </div>
+        </div>
+        <div class="asesor-card">
+            <img src="~/images/asesor_memo.jpg" alt="Guillermo Antonio Gordillo Pizarro">
+            <div class="asesor-info">
+                <p class="asesor-role">Contador Inmobiliario</p>
+                <p class="asesor-name">Guillermo Antonio Gordillo Pizarro</p>
+                <a asp-action="Contacto" class="btn-contact-small">Contactar</a>
+            </div>
+        </div>
+        <div class="asesor-card">
+            <img src="~/images/asesor_diego.jpg" alt="José Diego Barrios Alcantar">
+            <div class="asesor-info">
+                <p class="asesor-role">Contador Inmobiliario</p>
+                <p class="asesor-name">José Diego Barrios Alcantar</p>
+                <a asp-action="Contacto" class="btn-contact-small">Contactar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="asesores-features">
+        <div class="feature-item">
+            <div class="feature-number">1</div>
+            <p>Lleva el control total de tus finanzas inmobiliarias con nuestro contador especializado: preciso, confiable y enfocado en maximizar tus ganancias y tranquilidad. Con 23 casi 24 años de experiencia.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-number">2</div>
+            <p>Wiliam Anthonyh. Hace cuentas claras para cerrar ventas, a su manera.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-number">3</div>
+            <p>Un contador inmobiliario con visión estratégica y un toque de encanto. Cierra ventas con precisión, y siempre dejando una sonrisa por el camino.</p>
+        </div>
+    </div>
+</section>

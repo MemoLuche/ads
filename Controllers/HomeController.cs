@@ -146,7 +146,7 @@ namespace MiProyectoPortable.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-         // GET: /Home/Contacto
+        // GET: /Home/Contacto
         [HttpGet]
         public IActionResult Contacto()
         {
@@ -165,5 +165,13 @@ namespace MiProyectoPortable.Controllers
             ViewBag.Message = "¡Gracias por contactarnos! En breve te responderemos.";
             return View();
         }
+        
+        // Controllers/HomeController.cs
+        [HttpGet]
+        public IActionResult Asesores()
+        {
+            return View();
+        }
+
     }
 }
