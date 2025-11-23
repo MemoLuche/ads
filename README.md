@@ -41,13 +41,15 @@ To run this application, you need one of the following:
 
 1. **Navigate to the project directory**:
    ```bash
-   cd ads
+   cd <project-directory>
    ```
    
-   Or if you need to clone the repository first:
+   Replace `<project-directory>` with the path where you cloned or downloaded the project.
+   
+   If you need to clone the repository first:
    ```bash
    git clone <repository-url>
-   cd ads
+   cd <project-directory>
    ```
 
 2. **Restore dependencies**:
@@ -122,7 +124,7 @@ dotnet ef database update
 ## Project Structure
 
 ```
-MiProyectoPortable/
+<project-root>/
 ├── Controllers/         # MVC Controllers
 │   └── HomeController.cs
 ├── Models/             # Data models
