@@ -39,9 +39,14 @@ To run this application, you need one of the following:
 
 ### Method 1: Using .NET CLI (Development)
 
-1. **Clone the repository** (if you haven't already):
+1. **Navigate to the project directory**:
    ```bash
-   git clone https://github.com/MemoLuche/ads.git
+   cd ads
+   ```
+   
+   Or if you need to clone the repository first:
+   ```bash
+   git clone <repository-url>
    cd ads
    ```
 
@@ -207,7 +212,10 @@ dotnet run --urls "http://localhost:3000;https://localhost:3001"
 
 If you encounter database errors:
 
-1. Delete the existing database: `rm Data/MakaHouse.db`
+1. Delete the existing database:
+   - Linux/Mac: `rm Data/MakaHouse.db`
+   - Windows: `del Data\MakaHouse.db`
+   - Or use EF Core: `dotnet ef database drop`
 2. Reapply migrations: `dotnet ef database update`
 
 ### Docker Build Issues

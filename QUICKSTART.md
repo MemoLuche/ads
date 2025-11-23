@@ -12,7 +12,7 @@ This is a quick reference to get the application running in under 5 minutes.
 
 ```bash
 # 1. Navigate to the project directory
-cd /path/to/ads
+cd <your-project-directory>
 
 # 2. Run the application
 dotnet run
